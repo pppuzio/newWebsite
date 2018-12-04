@@ -2,32 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Paweł Puzio - Artist</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,400" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="js/app.js"></script>
 
 </head>
 
 <body>
-    <header id="site-header" class="site-header">
-
-        <div class="banner">
-            <nav class="banner-menu"></nav>
-            <div class="banner-image"></div>
+    <div id="scene" class="container" data-pointer-events="true">
+        <div data-depth="0.02" class="far-background">
+            <div class="far-background fullscreen-height"></div>
         </div>
-    </header>
-    <section id="about" class="about-section">
+        <div class="farest-plane">
+            <header id="site-header" class="site-header fullscreen-height">
+                <div class="site-header--wrapper">
+                    <div class="site-header--inner">
+                        <div class="flex flex__vertical">
+                            <nav class="site-bar">
+                                <div class="site-bar--wrapper">
+                                    <div class="site-bar--inner">
+                                        <div class="flex flex__horizontal">
+                                            <a href="#"><div class="site-logo"></div></a>
+                                            <div class="site-bar-menu">
+                                                <div class="site-bar-menu--wrapper">
+                                                    <div class="site-bar-menu--inner">
+                                                        <ul class="horizontal-menu">
+                                                            <li class="horizontal-menu--item"><a href="#"><p class="text text__light">About</p></a></li>
+                                                            <li class="horizontal-menu--item"><a href="#"><p class="text text__light">Works</p></a></li>
+                                                            <li class="horizontal-menu--item"><a href="#"><p class="text text__light">Info/Contact</p></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-    </section>
-    <section id="work" class="work-section">
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="header-lead">
+                                <div class="header-lead--wrapper">
+                                    <div class="header-lead--inner">
+                                        <h1 class="section-title section-title__big section-title__light">Paweł <span>Puzio</span></h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="scroll-arrow"> > </div>;
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="site-content">
+                <section id="about" class="about-section">
+                    <div class="testbox">
+                    </div>
+                </section>
+                <section id="work" class="work-section">
 
-    </section>
-    <section id="info" class="info-section">
+                </section>
+                <section id="info" class="info-section">
 
-    </section>
-    <footer id="footer" class="footer">
+                </section>
+            </main>
+            <footer id="footer" class="site-footer">
 
-    </footer>
+            </footer>
+        </div>
+
+    </div>
+
 <script type="text/javascript" src="out.js"></script></body>
 
-<script src="js/app.js"></script>
 </html>
