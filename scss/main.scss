@@ -61,7 +61,7 @@ a {
 .testbox {
   background: white;
   width: 100%;
-  height: 600px;
+  height: 1000px;
 }
 
 // TEXT
@@ -137,7 +137,8 @@ a {
    color: $dark-color;
    font-family: $sans-serif-font-family;
    font-size: $small-font-size-03;
-   font-weight: 500;
+   font-weight: 300;
+   letter-spacing: 0.2em;
 }
 
 .text__light {
@@ -217,6 +218,8 @@ a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  transition: .5s ease-in-out;
+  transition-delay: 0.1s;
 }
 
 .sticky-icon {
@@ -253,6 +256,15 @@ a {
   .main-menu--wrapper{
     padding: 100px 0;
   }
+
+}
+
+.main-menu__open {
+  top: 0;
+}
+
+.main-menu__closed {
+  top: -100%
 }
 
 .vertical-menu{
@@ -261,28 +273,46 @@ a {
     text-align: center;
     padding: 10px 0;
     text-transform: uppercase;
+    transition: .5s ease-in-out;
+    transition-delay: .5s;
+    opacity: 0;
+    list-style: none;
+
+    a{
+      letter-spacing: 0.2em;
+      transition: .3s ease-in-out;
+      position: relative;
+
+      &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 50%;
+        border-left: 10px solid $medium-color;
+        border-right: 10px solid $medium-color;
+        transform: translateY(-50%);
+        height: 3px;
+        transition: all 0.35s ease;
+        opacity: 0;
+      }
+      &:hover:after{
+        left: -29px;
+        right: -20px;
+        border-left: 16px solid $medium-color;
+        border-right: 16px solid $medium-color;
+        opacity: 1;
+      }
+
+      &:hover{
+        letter-spacing: 0.5em;
+      }
+    }
   }
 }
 
 // BUTTONS
-
-/*.hamburger-toggler {
-  position: fixed;
-  top: 25px;
-  right: 25px;
-
-  @media (min-width: $rwd-900){
-    display: none;
-  }
-
-  div{
-    height: 2px;
-    width: 35px;
-    background-color: $light-color;
-    margin-top: 8px;
-
-  }
-}*/
 
 .hamburger-toggler {
 
@@ -310,16 +340,12 @@ a {
     transition: .5s ease-in-out;*/
     cursor: pointer;
 
-    &:hover div{
-      background: $medium-color;
-    }
-
     div{
       display: block;
       position: absolute;
       height: 3px;
       width: 50%;
-      background: $light-color;
+/*      background: $light-color;*/
       opacity: 1;
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
@@ -443,4 +469,18 @@ a {
 @keyframes changewidth {
   0% {  transform: rotate(90deg) scale(1,2) translate(10px,0); }
   100% {  transform: rotate(90deg) scale(1,2) translate(0,0); }
+}
+
+// MODIFIERS
+
+.light-color-background {
+  background: $light-color;
+}
+
+.dark-color-background {
+  background: $dark-color;
+}
+
+.medium-color-background {
+  background: $medium-color;
 }
