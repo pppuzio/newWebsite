@@ -5,7 +5,7 @@ module.exports = {
     entry: './js/app.js',
     output: {
         filename: 'out.js',
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'docs'),
     },
     mode: 'development',
     watch: true,
