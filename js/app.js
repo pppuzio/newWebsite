@@ -22,7 +22,7 @@ $(function () {
     //hamburger & main-menu
 
     function hamburgerToggler(){
-        $(".hamburger-toggler--wrapper").click(function(){
+        $(".hamburger-toggler--wrapper").on('click',function(){
             $(this).toggleClass('open');
             menuSlideToggle();
             menuItemsDelayedToggle();
