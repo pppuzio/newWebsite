@@ -21,8 +21,19 @@ $(function () {
 
     //hamburger & main-menu
 
-    function hamburgerToggler(){
+/*    function hamburgerToggler(){
         $(".hamburger-toggler--wrapper").vclick(function(){
+            $(this).toggleClass('open');
+            menuSlideToggle();
+            menuItemsDelayedToggle();
+            setDarkHamburgerOnLightBackground();
+            changeSiteLogoValueOnMenuOpen();
+        })
+    }
+    hamburgerToggler();*/
+
+    function hamburgerToggler(){
+        $(".hamburger-toggler--wrapper").on('vclick', function(){
             $(this).toggleClass('open');
             menuSlideToggle();
             menuItemsDelayedToggle();
