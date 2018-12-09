@@ -3,7 +3,7 @@ import Parallax from 'parallax-js';
 
 
 
-$(function () {
+
 
     //paralax setup
     var scene = document.getElementById('scene');
@@ -33,8 +33,11 @@ $(function () {
     hamburgerToggler();*/
 
     function hamburgerToggler(){
-        $(".hamburger-toggler").on('vclick click', function(){
-            $(this).children().toggleClass('open');
+        $(".hamburger-toggler").on('click', function(e){
+
+            console.log('klikam');
+            console.log($(this).find(".hamburger-toggler--wrapper"));
+            $(this).find(".hamburger-toggler--wrapper").toggleClass('open');
             menuSlideToggle();
             menuItemsDelayedToggle();
             setDarkHamburgerOnLightBackground();
@@ -157,4 +160,3 @@ $(function () {
         })
     }
     hoverChangeToMediumColor(hamburgerWrapper);
-});
