@@ -33,8 +33,8 @@ $(function () {
     hamburgerToggler();*/
 
     function hamburgerToggler(){
-        $(".hamburger-toggler--wrapper").on('vclick click', function(){
-            $(this).toggleClass('open');
+        $(".hamburger-toggler").on('vclick click', function(){
+            $(this).children().toggleClass('open');
             menuSlideToggle();
             menuItemsDelayedToggle();
             setDarkHamburgerOnLightBackground();
