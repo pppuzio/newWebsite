@@ -107,9 +107,9 @@ import Parallax from 'parallax-js';
 
         $(document).on('scroll', function(){
             if($(document).scrollTop() >= $('#about').offset().top && !$('.main-menu').hasClass('main-menu__open')){
-                $('.site-logo').css('background-image','url("../images/pp-logo-black.png');
+                $('.site-logo').css('background-image','url("images/pp-logo-black.png');
             }else {
-                $('.site-logo').css('background-image','url("../images/pp-logo-white.png")');
+                $('.site-logo').css('background-image','url("images/pp-logo-white.png")');
             }
         })
     }
@@ -117,9 +117,9 @@ import Parallax from 'parallax-js';
 
     function changeSiteLogoValueOnMenuOpen(){
         if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__open')){
-            $('.site-logo').css('background-image','url("../images/pp-logo-white.png');
+            $('.site-logo').css('background-image','url("images/pp-logo-white.png');
         } else if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__closed')){
-            $('.site-logo').css('background-image','url("../images/pp-logo-black.png');
+            $('.site-logo').css('background-image','url("images/pp-logo-black.png');
         }
     }
 
