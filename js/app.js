@@ -33,7 +33,7 @@ $(function () {
     hamburgerToggler();*/
 
     function hamburgerToggler(){
-        $(".hamburger-toggler--wrapper").on('vclick', function(){
+        $(".hamburger-toggler--wrapper").on('vclick click', function(){
             $(this).toggleClass('open');
             menuSlideToggle();
             menuItemsDelayedToggle();
