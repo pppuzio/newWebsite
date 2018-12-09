@@ -4,7 +4,7 @@ var Html = require('html-webpack-plugin');
 module.exports = {
     entry: './js/app.js',
     output: {
-        filename: 'out.js',
+        filename: 'js/out.js',
         path: path.resolve(__dirname, 'docs'),
     },
     mode: 'development',
