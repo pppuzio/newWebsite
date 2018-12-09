@@ -5,7 +5,7 @@ import Parallax from 'parallax-js';
 
 
 
-    //paralax setup
+    //paralax setup TODO: opakuj w document ready
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
 
