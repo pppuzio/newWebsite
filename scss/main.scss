@@ -23,7 +23,7 @@ a {
 /*  transform: scale(1.1,1.1)*/
 }
 
-.farest-plane{
+.mid-plane{
   width: 100%;
 }
 
@@ -400,6 +400,81 @@ a {
   }
 }
 
+// PARALLAX OBJECTS
+
+.shape-container {
+  width: 100%;
+  position: relative;
+}
+
+.farest-plane {
+  width: 100%;
+
+  .big-shape-2 {
+    background-image: url("../images/shapeBig2.png");
+    width: 35%;
+    height: 38vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 26vh;
+    left: 45%;
+    filter: blur(5px);
+    transform: rotate(-10deg);
+
+  }
+}
+
+.middle-close-plane{
+  width: 100%;
+
+  .small-shape-4{
+    background-image: url("../images/shapeSmall4.png");
+    width: 20%;
+    height: 34vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 53vh;
+    left: 19%;
+    filter: blur(2px);
+    transform: rotate(-40deg);
+  }
+}
+
+.closest-plane {
+  width: 100%;
+
+  .small-shape-1{
+    background-image: url(../images/shapeSmall1.png);
+    width: 22%;
+    height: 15vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 54vh;
+    left: 80%;
+    transform: rotate(20deg);
+    filter: blur(0.5px);
+  }
+}
+
+.mid-plane {
+  width: 100%;
+
+  .small-shape-2 {
+    background-image: url(../images/shapeSmall2.png);
+    width: 22%;
+    height: 21vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -11vh;
+    left: 2%;
+    transform: rotate(180deg)
+  }
+}
+
 // ANIMATIONS
 
 
@@ -448,6 +523,7 @@ a {
     border-radius: 50%;
     z-index: -1;
     transition: all 0.3s ease-out;
+    transform: scale(0.9,0.9);
   }
   &:hover:after {
     opacity: 1;
