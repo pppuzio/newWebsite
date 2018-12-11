@@ -11,6 +11,9 @@ a {
   text-decoration: none;
 }
 
+body {
+  overflow-x: hidden;
+}
 // Parallax
 
 .far-background {
@@ -20,7 +23,7 @@ a {
   background-position: center;
   width: 100%;
   height: 100vh;
-/*  transform: scale(1.1,1.1)*/
+  transform: scale(1.1,1.1);
 }
 
 .mid-plane{
@@ -28,11 +31,11 @@ a {
 }
 
 // HEADER
-
 .site-header{
 
   width: 100%;
   height: 100vh;
+/* overflow: hidden;*/
 
   .site-header--wrapper{
     height: 100%;
@@ -57,13 +60,6 @@ a {
   font-size: $large-font-size-14;
 }
 
-
-.testbox {
-  background: white;
-  width: 100%;
-  height: 1000px;
-}
-
 // TEXT
 
 .section-title {
@@ -72,30 +68,36 @@ a {
   font-style: italic;
   font-size: $large-font-size-13;
   letter-spacing: 0.15em;
+  position: relative;
+  display: inline;
 
-
-    :after {
+    &:after {
       content: "";
       display: block;
       border-bottom: 1px solid $dark-color;
-      padding-top: 20px;
-      margin: 0 auto;
+      padding-top: 8px;
+      left: 0;
+      position: absolute;
+      width: 100%;
     }
 }
 
 .section-title__light {
   color: $light-color;
+  font-weight: 500;
 
-    :after {
+    &:after {
       border-bottom: 1px solid $light-color;
     }
+}
 
+.section-title__dark {
+  color: $dark-color;
 }
 
 .section-title__big {
   font-size: $very-huge-font-size-17;
   text-transform: uppercase;
-
 
       @media (min-width: $rwd-650){
         font-size: $very-huge-font-size-29;
@@ -109,27 +111,9 @@ a {
       @media (min-width: $rwd-1800){
         font-size: $very-huge-font-size-33;
       }
-      :after {
-        width: 320px;
+      &:after {
+        margin-top: 10px;
 
-        @media (min-width: $rwd-650){
-          width: 438px;
-        }
-        @media (min-width: $rwd-900){
-          width: 880px;
-        }
-        @media (min-width: $rwd-1100){
-          width: 880px;
-        }
-        @media (min-width: $rwd-1300){
-          width: 1056px;
-        }
-        @media (min-width: $rwd-1500){
-          width: 1210px;
-        }
-        @media (min-width: $rwd-1800){
-          width: 1450px;
-        }
       }
 }
 
@@ -209,6 +193,24 @@ a {
   align-items: center;
 }
 
+.section-wrapper {
+  padding: 70px 0;
+
+  @media (min-width: $rwd-900){
+    padding: 100px 0;
+  }
+  .section-inner {
+    padding: 0 100px;
+  }
+}
+
+
+.section-title--wrapper {
+
+  .section-title--inner {
+    text-align: center;
+  }
+}
 //IMAGES
 
 .site-logo {
