@@ -120,10 +120,14 @@ body {
 .text {
    color: $dark-color;
    font-family: $sans-serif-font-family;
-   font-size: $small-font-size-00;
+   font-size: $very-small-font-size;
    font-weight: 500;
    letter-spacing: 0.2em;
    line-height: 1.7em;
+
+  @media (min-width: $rwd-380){
+    font-size: $small-font-size-00;
+  }
 }
 
 .text__menu-item {
@@ -522,15 +526,19 @@ body {
     left: 57%;
     /* filter: blur(5px); */
     transform: rotate(150deg);
+    display: none;
 
     @media (min-width: $rwd-650) {
       left: 57%;
     }
     @media (min-width: $rwd-900) {
-
+      display: block;
+      top: 179vh;
     }
-    @media (min-width: $rwd-1100) {
-
+    @media (min-width: $rwd-1300) {
+      top: 140vh;
+      width: 44%;
+      height: 38vh;
     }
   }
 }
@@ -566,11 +574,17 @@ body {
     position: absolute;
     top: 214vh;
     left: 57%;
-    filter: blur(5px);
+    filter: blur(3px);
     transform: rotate(150deg);
 
     @media (min-width: $rwd-900) {
-
+      top: 193vh;
+    }
+    @media (min-width: $rwd-1300) {
+      top: 166vh;
+      width: 46%;
+      height: 23vh;
+      left: 51%;
     }
   }
 }
