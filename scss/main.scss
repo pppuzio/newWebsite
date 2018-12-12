@@ -567,14 +567,14 @@ body {
   }
   .small-shape-1b{
     background-image: url(../images/shapeSmall1.png);
-    width: 47%;
-    height: 18vh;
+    width: 40%;
+    height: 15vh;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    top: 214vh;
+    top: 216vh;
     left: 57%;
-    filter: blur(3px);
+    filter: blur(5px);
     transform: rotate(150deg);
 
     @media (min-width: $rwd-900) {
