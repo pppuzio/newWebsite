@@ -497,6 +497,22 @@ body {
 .middle-close-plane{
   width: 100%;
 
+  .big-shape-2 {
+    background-image: url(../images/shapeBig2.png);
+    width: 29%;
+    height: 22vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 285vh;
+    left: 73%;
+    transform: rotate(320deg);
+
+    @media (min-width: $rwd-900) {
+
+    }
+
+  }
   .small-shape-4{
     background-image: url("../images/shapeSmall4.png");
     width: 27%;
@@ -556,7 +572,7 @@ body {
     top: 62vh;
     left: 66%;
     transform: rotate(20deg);
-    filter: blur(0.5px);
+    /*filter: blur(0.5px);*/
 
     @media (min-width: $rwd-900) {
       width: 29%;
@@ -605,6 +621,21 @@ body {
 
     @media (min-width: $rwd-900) {
       width: 22%;
+    }
+  }
+  .small-shape-4 {
+    background-image: url(../images/shapeSmall4.png);
+    width: 30%;
+    height: 26vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -12vh;
+    left: 62%;
+    transform: rotate(-10deg);
+
+    @media (min-width: $rwd-900) {
+
     }
   }
 }
