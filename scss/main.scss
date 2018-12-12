@@ -510,6 +510,29 @@ body {
       top: 53vh;
     }
   }
+
+  .big-shape-1 {
+    background-image: url("../images/shapeBig1.png");
+    width: 52%;
+    height: 27vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 202vh;
+    left: 57%;
+    /* filter: blur(5px); */
+    transform: rotate(150deg);
+
+    @media (min-width: $rwd-650) {
+      left: 57%;
+    }
+    @media (min-width: $rwd-900) {
+
+    }
+    @media (min-width: $rwd-1100) {
+
+    }
+  }
 }
 
 .closest-plane {
@@ -528,10 +551,26 @@ body {
     filter: blur(0.5px);
 
     @media (min-width: $rwd-900) {
-      width: 22%;
-      height: 15vh;
-      top: 54vh;
-      left: 80%;
+      width: 29%;
+      height: 22vh;
+      top: 62vh;
+      left: 66%;
+    }
+  }
+  .small-shape-1b{
+    background-image: url(../images/shapeSmall1.png);
+    width: 47%;
+    height: 18vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 214vh;
+    left: 57%;
+    filter: blur(5px);
+    transform: rotate(150deg);
+
+    @media (min-width: $rwd-900) {
+
     }
   }
 }
