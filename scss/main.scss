@@ -504,9 +504,10 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    top: 285vh;
-    left: 73%;
+    top: 246vh;
+    left: 65%;
     transform: rotate(320deg);
+    filter: blur(1px);
 
     @media (min-width: $rwd-900) {
 
@@ -626,12 +627,12 @@ body {
   .small-shape-4 {
     background-image: url(../images/shapeSmall4.png);
     width: 30%;
-    height: 26vh;
+    height: 18vh;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    top: -12vh;
-    left: 62%;
+    top: -154vh;
+    left: 49%;
     transform: rotate(-10deg);
 
     @media (min-width: $rwd-900) {
@@ -649,7 +650,7 @@ body {
     content: '';
     display: block;
     width: 100%;
-    height: 500%;
+    height: 400%;
     background: #FF003D;
     position: absolute;
     top: -140px;
