@@ -349,6 +349,56 @@ body {
   }
 }
 
+.gallery-menu--wrapper{
+  padding: 0 70px;
+
+  @media (min-width: $rwd-480){
+    padding: 0 100px;
+  }
+
+  .gallery-menu--inner{
+    padding: 170px 0;
+  }
+}
+
+.gallery-menu{
+
+  .gallery-menu--item{
+    text-align: center;
+    padding: 10px 0;
+    text-transform: uppercase;
+    transition: .5s ease-in-out;
+    transition-delay: .5s;
+    opacity: 1;
+    list-style: none;
+
+    a{
+      letter-spacing: 0.2em;
+      transition: .3s ease-in-out;
+      position: relative;
+
+      &:after{
+        content: '';
+        display: block;
+        background: $medium-color;
+        width: 100%;
+        height: 2px;
+        transition: all 0.35s ease;
+        transform: scaleX(0);
+        opacity: 0;
+      }
+      &:hover:after{
+        transform: scaleX(1);
+        opacity: 1;
+      }
+
+      &:hover{
+        letter-spacing: 0.5em;
+      }
+    }
+  }
+}
+
 // BUTTONS
 
 .hamburger-toggler {
@@ -500,19 +550,32 @@ body {
   .big-shape-2 {
     background-image: url(../images/shapeBig2.png);
     width: 29%;
-    height: 22vh;
+    height: 23vh;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    top: 246vh;
-    left: 65%;
+    top: 230vh;
+    left: 54%;
     transform: rotate(320deg);
     filter: blur(1px);
+    display: none;
 
     @media (min-width: $rwd-900) {
-
+      display: block;
     }
 
+    @media (min-width: $rwd-1100) {
+      left: 64%;
+    }
+    @media (min-width: $rwd-1300) {
+      top: 200vh;
+    }
+    @media (min-width: $rwd-1500) {
+      top: 185vh;
+    }
+    @media (min-width: $rwd-1700) {
+      top: 175vh;
+    }
   }
   .small-shape-4{
     background-image: url("../images/shapeSmall4.png");
@@ -627,16 +690,29 @@ body {
   .small-shape-4 {
     background-image: url(../images/shapeSmall4.png);
     width: 30%;
-    height: 18vh;
+    height: 22vh;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    top: 154vh;
+    top: 124vh;
     left: 49%;
-    transform: rotate(-10deg);
+    transform: rotate(-20deg);
+    display: none;
 
     @media (min-width: $rwd-900) {
-
+      display: block;
+    }
+    @media (min-width: $rwd-1100) {
+      left: 65%;
+    }
+    @media (min-width: $rwd-1300) {
+      top: 100vh;
+    }
+    @media (min-width: $rwd-1500) {
+      top: 85vh;
+    }
+    @media (min-width: $rwd-1700) {
+      top: 75vh;
     }
   }
 }
