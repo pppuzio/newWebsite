@@ -21,19 +21,8 @@ import Parallax from 'parallax-js';
 
     //hamburger & main-menu
 
-/*    function hamburgerToggler(){
-        $(".hamburger-toggler--wrapper").vclick(function(){
-            $(this).toggleClass('open');
-            menuSlideToggle();
-            menuItemsDelayedToggle();
-            setDarkHamburgerOnLightBackground();
-            changeSiteLogoValueOnMenuOpen();
-        })
-    }
-    hamburgerToggler();*/
-
     function hamburgerToggler(){
-        $(".hamburger-toggler").on('click', function(e){
+        $(".hamburger-toggler").on('click', function(){
 
             console.log('klikam');
             console.log($(this).find(".hamburger-toggler--wrapper"));
@@ -160,3 +149,24 @@ import Parallax from 'parallax-js';
         })
     }
     hoverChangeToMediumColor(hamburgerWrapper);
+
+    //galllery
+
+    function galleryToggle(){
+
+        $('.gallery-menu--item').on('click', function(){
+            let menuItemId= $(this).attr('id');
+            $('.gallery-menu').addClass('gallery-menu__hidden');
+            $('.gallery-menu').removeClass('gallery-menu__visible');
+
+            console.log('#galllery-'+ menuItemId);
+            console.log($(`#gallery-${menuItemId}`));
+
+            $(`#gallery-${menuItemId}`).addClass('gallery__visible');
+            $(`#gallery-${menuItemId}`).removeClass('gallery__hidden');
+
+            $(`#work-info-${menuItemId}`).addClass('work-info__visible');
+            $(`#work-info-${menuItemId}`).removeClass('work-info__hidden');
+        });
+    }
+    galleryToggle();
