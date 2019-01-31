@@ -257,8 +257,8 @@ body {
     height: 90vh;
 
   .gallery--inner{
-    padding: 30px;
-    border: 1px solid $dark-color;
+/*    padding: 30px;
+    border: 1px solid $dark-color;*/
     background: rgba($light-color, $opacity-70);
     width: 100%;
     height: 100%;
@@ -396,6 +396,7 @@ body {
 
 .gallery-menu{
   transition: all 0.35s ease;
+  width: 100%;
 
 
   .gallery-menu--item{
@@ -412,6 +413,7 @@ body {
       letter-spacing: 0.2em;
       transition: .3s ease-in-out;
       position: relative;
+      display: inline-block;
 
       &:after{
         content: '';
@@ -432,8 +434,28 @@ body {
         letter-spacing: 0.5em;
       }
     }
+
   }
 }
+
+.gallery-menu--item-close-button {
+  background: black;
+  color: white;
+  display: inline-block;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  transition: .3s ease-in-out;
+  transition-delay: .5s;
+}
+.gallery-menu--item-close-button__hidden {
+  display: none;
+}
+.gallery-menu--item-close-button__visible {
+  display: inline-block;
+}
+
 .gallery-menu__visible {
   opacity: 1;
 
@@ -538,36 +560,41 @@ body {
   position: relative;
 }
 .gallery {
-  position: absolute;
+/*  position: absolute;
   top: 170px;
   width: 92%;
   left: 50%;
-  transform: translate(-50%, 0);
-  transition: 1s ease-in-out;
-  transition-delay: .1s;
-  opacity: 0;
-  visibility: hidden;
-  filter: blur(3px) /*brightness(10%)*/;
+  transform: translate(-50%, 0) scaleY(0);*/
+/*  transition: 1s ease-in-out;
+  transition-delay: .1s;*/
+/*  opacity: 0;*/
+  display: none;
+  width: 100%;
+/*  filter: blur(3px)*/ /*brightness(10%)*/;
 
 
   .gallery--image {
-    background-image: url("../images/Paweł Puzio_In Bloom_2.jpg");
+
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: 0px 2520px;
+    background-image: url("../images/Paweł Puzio_In Bloom_2.jpg");
+/*    background: #3500c9;*/
   }
 }
 .gallery__visible {
-  opacity: 1;
-  left: 50%;
+/*  opacity: 1;*/
+/*  left: 50%;*/
   filter: blur(0px) /*brightness(100%)*/;
-  visibility: visible;
+  display: block;
+/*  transform: translate(-50%, 0) scaleY(1);*/
 }
 
 .gallery__hidden {
-  opacity: 0;
-  left: 150%;
+/*  opacity: 0;*/
+/*  left: 150%;*/
+  display: none;
 }
 
 .work-info {
@@ -922,3 +949,5 @@ body {
 .medium-color-background {
   background: $medium-color;
 }
+/*
+body * { margin:0 !important; padding:0 !important; }*/

@@ -156,17 +156,49 @@ import Parallax from 'parallax-js';
 
         $('.gallery-menu--item').on('click', function(){
             let menuItemId= $(this).attr('id');
-            $('.gallery-menu').addClass('gallery-menu__hidden');
-            $('.gallery-menu').removeClass('gallery-menu__visible');
+            /*$('.gallery-menu').addClass('gallery-menu__hidden');
+            $('.gallery-menu').removeClass('gallery-menu__visible');*/
 
             console.log('#galllery-'+ menuItemId);
             console.log($(`#gallery-${menuItemId}`));
+            console.log($(`#gallery-${menuItemId}`).siblings());
 
-            $(`#gallery-${menuItemId}`).addClass('gallery__visible');
+            $(`#gallery-${menuItemId}`).slideDown('slow');
+            $('html,body').animate({
+                    scrollTop: $(this).offset().top},
+                    'slow');
+
+            showCloseGalleryButton();
+
+/*            $(`#gallery-${menuItemId}`).addClass('gallery__visible');
             $(`#gallery-${menuItemId}`).removeClass('gallery__hidden');
 
             $(`#work-info-${menuItemId}`).addClass('work-info__visible');
-            $(`#work-info-${menuItemId}`).removeClass('work-info__hidden');
+            $(`#work-info-${menuItemId}`).removeClass('work-info__hidden');*/
         });
     }
     galleryToggle();
+
+    function closeGalleryItem(){
+
+        let closeButton = $('.gallery-menu--item-close-button');
+
+        closeButton.on('click',function(){
+
+            console.log('eloelo!');
+        })
+    }
+
+    closeGalleryItem();
+
+    function showCloseGalleryButton() {
+
+        let closeButton = $('.gallery-menu--item-close-button');
+
+        closeButton.addClass('gallery-menu--item-close-button__visible');
+        closeButton.removeClass('gallery-menu--item-close-button__hidden');
+
+    }
+
+
+
