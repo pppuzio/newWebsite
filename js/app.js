@@ -5,6 +5,7 @@ import Parallax from 'parallax-js';
 
 
 
+
     //paralax setup TODO: opakuj w document ready
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
@@ -154,21 +155,29 @@ import Parallax from 'parallax-js';
 
     function galleryToggle(){
 
-        $('.gallery-menu--item').on('click', function(){
-            let menuItemId= $(this).attr('id');
+
+
+        $('.gallery-menu--item-title').on('click', function(){
+            const menuItemId= $(this).parent().parent().attr('id');
             /*$('.gallery-menu').addClass('gallery-menu__hidden');
             $('.gallery-menu').removeClass('gallery-menu__visible');*/
 
-            console.log('#galllery-'+ menuItemId);
+/*            console.log('#galllery-'+ menuItemId);
             console.log($(`#gallery-${menuItemId}`));
-            console.log($(`#gallery-${menuItemId}`).siblings());
+            console.log($(`#gallery-${menuItemId}`).siblings());*/
+            console.log('click na tytuł');
 
-            $(`#gallery-${menuItemId}`).slideDown('slow');
+            const selectedGallery = $(`#gallery-${menuItemId}`);
+
+            selectedGallery.slideDown('slow');
             $('html,body').animate({
                     scrollTop: $(this).offset().top},
                     'slow');
 
+            $(this).parent().parent().addClass('gallery-menu--item-title__active');
+
             showCloseGalleryButton();
+            closeGalleryItem();
 
 /*            $(`#gallery-${menuItemId}`).addClass('gallery__visible');
             $(`#gallery-${menuItemId}`).removeClass('gallery__hidden');
@@ -185,11 +194,24 @@ import Parallax from 'parallax-js';
 
         closeButton.on('click',function(){
 
-            console.log('eloelo!');
+            console.log('click na X!');
+            console.log($(this).parent().siblings());
+            $(this).parent().siblings().slideUp();
+
+            $(this).addClass('gallery-menu--item-close-button__hidden');
+            $(this).removeClass('gallery-menu--item-close-button__visible');
+
+            /*$(this).parent().parent().removeClass('gallery-menu--item-title__active');*/
+            let menuItemTitle = $(this).parent().parent();
+
+            setTimeout(function() {
+                menuItemTitle.removeClass('gallery-menu--item-title__active');
+            }, 300);
+
         })
     }
 
-    closeGalleryItem();
+
 
     function showCloseGalleryButton() {
 
@@ -199,6 +221,16 @@ import Parallax from 'parallax-js';
         closeButton.removeClass('gallery-menu--item-close-button__hidden');
 
     }
+
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        loop:true,
+        margin:10,
+        responsive:{
+            0:{items:1},
+        }
+    });
+});
 
 
 

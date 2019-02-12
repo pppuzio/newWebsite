@@ -7,9 +7,12 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,400" rel="stylesheet">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
     <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script defer src="owlcarousel/owl.carousel.min.js"></script>
     <script src="js/out.js"></script>
 
 </head>
@@ -122,16 +125,20 @@
                                     <ul class="gallery-menu">
                                         <li class="gallery-menu--item" id="pollution">
                                             <div>
-                                                <p class="text">Pollution</p>
+                                                <p class="gallery-menu--item-title text">Pollution</p>
                                                 <div class="gallery-menu--item-close-button gallery-menu--item-close-button__hidden">
-                                                    x
+                                                    <div></div>
+                                                    <div></div>
                                                 </div>
                                             </div>
-
                                             <div class="gallery" id="gallery-pollution">
                                                 <div class="gallery--wrapper">
                                                     <div class="gallery--inner">
-                                                        <div class="gallery--image"></div>
+                                                        <div class="owl-carousel owl-theme">
+                                                            <div class="test1"></div>
+                                                            <div class="test1"></div>
+                                                            <div class="test1"></div>
+                                                        </div>
                                                         <div class="gallery--navigation"></div>
                                                     </div>
                                                 </div>
