@@ -627,6 +627,7 @@ body {
 
 
   .gallery--image {
+    background-color: $medium-color;
     width: 100%;
     height: 90vh;
     margin-top: 20px;
@@ -721,6 +722,27 @@ body {
 
 .inBloom3 {
   background-image: url("../images/InBloom3.jpg");
+}
+
+.pillar1 {
+   background-image: url("../images/Pillar1.jpg");
+ }
+
+.pillar2 {
+  background-image: url("../images/Pillar2.jpg");
+}
+
+.pillar3 {
+  background-image: url("../images/Pillar3.jpg");
+}
+
+.pillar4 {
+  background-image: url("../images/Pillar4.jpg");
+}
+
+.pillar1Detail {
+  background-image: url("../images/Pillar1Detail.jpg");
+  background-size: cover !important;
 }
 
 
