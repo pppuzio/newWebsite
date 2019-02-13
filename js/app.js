@@ -156,27 +156,26 @@ import Parallax from 'parallax-js';
     function galleryToggle(){
 
 
-
         $('.gallery-menu--item-title').on('click', function(){
-            const menuItemId= $(this).parent().parent().attr('id');
-            /*$('.gallery-menu').addClass('gallery-menu__hidden');
-            $('.gallery-menu').removeClass('gallery-menu__visible');*/
 
-/*            console.log('#galllery-'+ menuItemId);
-            console.log($(`#gallery-${menuItemId}`));
-            console.log($(`#gallery-${menuItemId}`).siblings());*/
-            console.log('click na tytuł');
+            $('.gallery-menu--item').removeClass('gallery-menu--item-title__active');
+            $('.gallery-menu--item-close-button').removeClass('gallery-menu--item-close-button__visible');
+            $('.gallery-menu--item-close-button').addClass('gallery-menu--item-close-button__hidden');
+            $('.gallery').slideUp();
+            let menuItemId= $(this).parent().parent().attr('id');
 
-            const selectedGallery = $(`#gallery-${menuItemId}`);
+            let selectedGallery = $(`#gallery-${menuItemId}`);
 
-            selectedGallery.slideDown('slow');
-            $('html,body').animate({
+
+            $('html,body').delay(750).animate({
                     scrollTop: $(this).offset().top},
                     'slow');
-
+            selectedGallery.delay(1000).slideDown('slow');
             $(this).parent().parent().addClass('gallery-menu--item-title__active');
 
-            showCloseGalleryButton();
+            console.log($(this).offset());
+
+            showCloseGalleryButton($(this));
             closeGalleryItem();
 
 /*            $(`#gallery-${menuItemId}`).addClass('gallery__visible');
@@ -213,9 +212,12 @@ import Parallax from 'parallax-js';
 
 
 
-    function showCloseGalleryButton() {
+    function showCloseGalleryButton(closeButtonParent) {
 
-        let closeButton = $('.gallery-menu--item-close-button');
+
+        /*let closeButton = $('.gallery-menu--item-close-button');*/
+        let closeButton = closeButtonParent.next();
+
 
         closeButton.addClass('gallery-menu--item-close-button__visible');
         closeButton.removeClass('gallery-menu--item-close-button__hidden');

@@ -627,7 +627,7 @@ body {
 
 
   .gallery--image {
-    background-color: $medium-color;
+    background-color: $light-color;
     width: 100%;
     height: 90vh;
     margin-top: 20px;
@@ -710,6 +710,7 @@ body {
 .pollution1Detail {
   background-image: url("../images/pollution1Detail.jpg");
   background-size: cover !important;
+  background-position: left !important;
 }
 
 .inBloom1 {
@@ -745,6 +746,53 @@ body {
   background-size: cover !important;
 }
 
+.kain-and-abel1 {
+  background-image: url("../images/kainabel1.jpg");
+}
+
+.kain-and-abel2 {
+  background-image: url("../images/kainabel2.jpg");
+}
+
+.kain-and-abel3 {
+  background-image: url("../images/kainabel3.jpg");
+}
+
+.kain-and-abel4 {
+  background-image: url("../images/kainabel4ale2.jpg");
+}
+
+.kain-and-abel5 {
+  background-image: url("../images/kainabel5.jpg");
+}
+
+.kain-and-abel6 {
+  background-image: url("../images/kainabel6.jpg");
+}
+
+.kain-and-abel7 {
+  background-image: url("../images/kainabel7.jpg");
+}
+
+.kain-and-abel8 {
+  background-image: url("../images/kainabel8.jpg");
+}
+
+.kain-and-abel9 {
+  background-image: url("../images/kainabel9.jpg");
+}
+
+.diver1 {
+  background-image: url("../images/diver1.jpg");
+}
+
+.diver2 {
+  background-image: url("../images/diver2.jpg");
+}
+
+.diver3 {
+  background-image: url("../images/diver3.jpg");
+}
 
 // PARALLAX OBJECTS
 
