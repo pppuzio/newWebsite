@@ -144,6 +144,13 @@ body {
   letter-spacing: normal;
 }
 
+.text__description {
+  font-size: $very-small-font-size-02;
+  text-transform: none;
+  font-style: italic;
+  font-weight: bolder;
+}
+
 // WRAPPERS & CONTAINERS
 
 .wrapper {
@@ -625,6 +632,7 @@ body {
     margin-top: 20px;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
   }
 }
 .gallery__visible {
@@ -691,6 +699,28 @@ body {
 
 .pollution3 {
   background-image: url("../images/pollution3.jpg");
+}
+
+.inBloom1Detail {
+  background-image: url("../images/InBloom1Detail.jpg");
+  background-size: cover !important;
+}
+
+.pollution1Detail {
+  background-image: url("../images/pollution1Detail.jpg");
+  background-size: cover !important;
+}
+
+.inBloom1 {
+  background-image: url("../images/InBloom1.jpg");
+}
+
+.inBloom2 {
+  background-image: url("../images/InBloom2.jpg");
+}
+
+.inBloom3 {
+  background-image: url("../images/InBloom3.jpg");
 }
 
 
@@ -1027,3 +1057,5 @@ body {
   background: $medium-color;
 
 }
+
+
