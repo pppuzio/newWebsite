@@ -649,7 +649,7 @@ body {
   .gallery--image {
     background-color: $light-color;
     width: 100%;
-    height: 50vh;
+    height: 70vh;
     margin-top: 20px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -715,8 +715,12 @@ body {
   .work-info--description {
     background: $medium-color;
     color: $light-color;
-    padding: 40px 50px;
+    padding: 40px 20px;
     box-shadow: 0 10px 18px rgba($dark-color, 0.5);
+
+    @media (min-width: $rwd-650){
+      padding: 40px 50px;
+    }
 
     .work-info--close-button {
       position: absolute;
