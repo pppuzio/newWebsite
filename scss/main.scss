@@ -789,6 +789,9 @@ body {
   transform: translate(-50%,0);
   border-radius: 10px;
 
+  @media (min-width: $rwd-380){
+    padding: 0 8px;
+  }
   @media (min-width: $rwd-1100){
     position: absolute;
     top: 50%;
