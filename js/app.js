@@ -155,30 +155,31 @@ import Parallax from 'parallax-js';
 
     function galleryToggle(){
 
-        /*$('.gallery-menu--item-title').off('dblclick');*/
         $('.gallery-menu--item-title').on('click', function(event){
             if(event.detail==1){
+
                 $('.gallery-menu--item').removeClass('gallery-menu--item-title__active');
                 $('.gallery-menu--item-close-button').removeClass('gallery-menu--item-close-button__visible');
                 $('.gallery-menu--item-close-button').addClass('gallery-menu--item-close-button__hidden');
                 hideGalleryItemDescription();
                 hideWorkInfoButton();
+
                 $('.gallery').slideUp();
                 let menuItemId= $(this).parent().parent().attr('id');
 
                 let selectedGallery = $(`#gallery-${menuItemId}`);
 
 
-                $('html,body').delay(750).animate({
+                $('html,body').delay(50).animate({
                         scrollTop: $(this).offset().top},
                     'slow');
-                selectedGallery.delay(1000).slideDown('slow');
+                selectedGallery.delay(300).slideDown('slow');
                 $(this).parent().parent().addClass('gallery-menu--item-title__active');
 
                 console.log($(this));
 
                 showCloseGalleryButton($(this));
-                showGalleryItemDescription($(this),1200);
+                showGalleryItemDescription($(this),700);
                 closeGalleryItem();
                 galleryDescriptionCloseButton($(this));
             }
@@ -239,8 +240,8 @@ import Parallax from 'parallax-js';
         let galleryItemDescription = galleryItem.parent().siblings('.work-info--wrapper').find(".work-info");
 
         setTimeout(function(){
+            console.log("infoworkDescription");
             galleryItemDescription.show();
-
             galleryItemDescription.removeClass("work-info__hidden");
             galleryItemDescription.addClass("work-info__visible");
             /*galleryItemDescription.fadeIn('slow');*/
@@ -255,26 +256,20 @@ import Parallax from 'parallax-js';
 
         setTimeout(function(){
 
-        },600);
+        },500);
 
         galleryItemDescription.addClass("work-info__hidden");
         galleryItemDescription.removeClass("work-info__visible");
 
         setTimeout(function(){
             galleryItemDescription.hide();
-        }, 1200);
+        }, 700);
 
-        console.log('hideGDescrit');
-        console.log(galleryItemDescription);
-
-        /*galleryItemDescription.delay().fadeOut('slow');*/
     }
 
     function defaultHideWorkInfo(){
         let galleryItemDescription = $(".work-info");
         galleryItemDescription.hide();
-        /*galleryItemDescription.fadeOut();*/
-
     }
     defaultHideWorkInfo();
 
@@ -296,12 +291,8 @@ import Parallax from 'parallax-js';
     }
 
     function showWorkInfoButton(galleryItemDescription) {
-        let workInfoButton = galleryItemDescription.parent().parent().find('.work-info--show-button');
-        console.log("ELO:");
-        console.log(workInfoButton);
-        console.log(galleryItemDescription);
 
-        /*workInfoButton.show();*/
+        let workInfoButton = galleryItemDescription.parent().parent().find('.work-info--show-button');
 
         setTimeout(function(){
 
@@ -319,10 +310,6 @@ import Parallax from 'parallax-js';
             setTimeout(function(){
                 workInfoButton.removeClass("work-info--show-button__visible");
                 workInfoButton.addClass("work-info--show-button__hidden");
-
-                /*setTimeout(function(){
-                    workInfoButton.hide();
-                },500)*/
 
             },100);
 
@@ -343,6 +330,34 @@ import Parallax from 'parallax-js';
 
         },100);
     }
+
+// textbox scroll buttons
+
+    function scrollTextBox(){
+
+        let scrollValue= 300;
+
+        $(".up").click(function(){
+
+            $(".info-text").animate({
+                scrollTop: ($('.info-text').scrollTop()-scrollValue),
+            },'fast');
+
+        });
+
+        $(".down").click(function(){
+
+            $(".info-text").animate({
+                scrollTop: ($('.info-text').scrollTop()+scrollValue),
+            },'fast');
+
+            $('.down').addClass('arrow__clicked');
+
+        });
+    }
+
+    scrollTextBox();
+
 
 // owl carousel
 

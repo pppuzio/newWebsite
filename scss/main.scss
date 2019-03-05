@@ -9,11 +9,23 @@
 
 a {
   text-decoration: none;
+  color: #fdcf00;
 }
 
 body {
   overflow-x: hidden;
 }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 // Parallax
 
 .far-background {
@@ -259,7 +271,7 @@ body {
   }
   @media (min-width: $rwd-1300){
     width: 36%;
-    padding: 100px 100px 100px 0;
+    padding: 100px 140px 100px 100px;;
   }
 }
 
@@ -270,7 +282,7 @@ body {
   .gallery--inner{
 /*    padding: 30px;
     border: 1px solid $dark-color;*/
-    background: rgba($light-color, $opacity-70);
+   /* background: rgba($light-color, $opacity-70);*/
     width: 100%;
     height: 100%;
     margin-top: 25px;
@@ -539,7 +551,103 @@ body {
 /*  padding-right: 200px;*/
 }
 
+// INFO-SECTION
 
+  .info-content--wrapper{
+    padding: 150px 0;
+
+    .info-content--inner{
+
+      .flex__rwd {
+        align-items: flex-start;
+      }
+
+    }
+  }
+
+
+
+  .info-text-container{
+    width: 30%;
+    padding: 0 50px;
+
+    .info-text {
+      font-size: $very-small-font-size-00;
+      letter-spacing: 0.1em;
+      height: 90vh;
+      overflow: auto;
+
+      span {
+        text-decoration: underline;
+        display: block;
+        margin: 20px 0;
+      }
+    }
+
+    .info-text::-webkit-scrollbar { width: 0 !important }
+
+    .scroll-arrows-container {
+
+      transform: rotate(90deg);
+      margin-right: 9px;
+      margin-top: 25px;
+
+      .arrow{
+        color: $dark-color;
+        background: $light-color;
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        border: 1px solid $dark-color;
+        text-align: center;
+        margin: 10px;
+        cursor: pointer;
+        transition: .3s ease-in-out;
+
+/*        &:hover{
+          transform: scale(1.15);
+        }*/
+
+/*        .arrow__clicked {
+          animation: singlePulse 1s ease-in-out;
+          !*animation-iteration-count: 1;*!
+        }*/
+      }
+
+      .down:active {
+        animation: singlePulse 2s ease-in-out;
+      }
+
+    }
+
+  }
+
+
+  .info-gallery--wrapper{
+    width: 70%;
+    padding: 0 50px;
+
+
+    .info-gallery--inner{
+
+
+      .gallery--image {
+
+        background-color: $light-color;
+        width: 100%;
+        height: 70vh;
+        margin-top: 20px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        @media (min-width: $rwd-1100){
+          height: 90vh;
+        }
+      }
+
+    }
+  }
 // BUTTONS
 
 .hamburger-toggler {
@@ -779,7 +887,7 @@ body {
 
 .work-info--show-button {
   position: absolute;
-  background-color: $medium-color;
+  background: $medium-color;
   color: $light-color;
   padding: 0 8px;
   box-shadow: 0 10px 18px rgba($dark-color, 0.5);
@@ -787,8 +895,19 @@ body {
   z-index: 2;
   margin-top: 10px;
   transform: translate(-50%,0);
-  border-radius: 10px;
+  width: 30%;
+/*  border-radius: 10px;*/
 
+  &:hover {
+    width: 35%;
+
+    @media (min-width: $rwd-1100) {
+      width: 23%;
+    }
+    @media (min-width: $rwd-1300) {
+      width: 16%;
+    }
+  }
   @media (min-width: $rwd-380){
     padding: 0 10px;
   }
@@ -1167,8 +1286,94 @@ body {
   background-image: url("../images/mirror7.jpg");
 }
 
+.liberec1 {
+  background-image: url("../images/exhibitions/liberec3.jpg");
+}
 
-//TODO : zmien wysokosc galllery do 50vh dla mobilnej wersji itp.
+.liberec2 {
+  background-image: url("../images/exhibitions/liberec2.jpg");
+}
+
+.liberec3 {
+  background-image: url("../images/exhibitions/liberec1.jpg");
+}
+
+.staryBrowar1 {
+  background-image: url("../images/exhibitions/staryBrowar_poznan1.jpg");
+}
+
+.staryBrowar2 {
+  background-image: url("../images/exhibitions/staryBrowar_poznan2.jpg");
+}
+
+.wilno {
+  background-image: url("../images/exhibitions/wilno.jpg");
+}
+
+.pollutionASP1 {
+   background-image: url("../images/exhibitions/pollution_aulaASP1.jpg");
+}
+
+.pollutionASP2 {
+  background-image: url("../images/exhibitions/pollution_aulaASP2.jpg");
+}
+
+.sollentuna1 {
+  background-image: url("../images/exhibitions/sollentuna2.jpg");
+}
+
+.sollentuna2 {
+  background-image: url("../images/exhibitions/sollentuna1.jpg");
+}
+
+.isfahan {
+  background-image: url("../images/exhibitions/isfahan.jpg");
+}
+
+.corazciasniej1 {
+  background-image: url("../images/exhibitions/corazciasniej.jpg");
+}
+
+.corazciasniej2 {
+  background-image: url("../images/exhibitions/corazciasniej2.jpg");
+}
+
+.scg1 {
+  background-image: url("../images/exhibitions/SCG_international_printmaking_conference1.jpg");
+}
+
+.scg2 {
+  background-image: url("../images/exhibitions/SCG_international_printmaking_conference2.jpg");
+}
+
+.redefinitionOfMatrix1 {
+   background-image: url("../images/exhibitions/redefinition_of_matrix1.jpg");
+ }
+
+.redefinitionOfMatrix2 {
+  background-image: url("../images/exhibitions/redefinition_of_matrix2.jpg");
+}
+
+.mtg2015 {
+  background-image: url("../images/exhibitions/mtg2015.jpg");
+}
+
+.mtg2015b {
+  background-image: url("../images/exhibitions/mtg2015b.jpg");
+}
+
+.impact9 {
+  background-image: url("../images/exhibitions/impact9.jpg");
+}
+
+.cuttingEdgePrintmaking1 {
+  background-image: url("../images/exhibitions/Cutting-Egde Printmaking1.jpg");
+}
+
+.cuttingEdgePrintmaking2 {
+  background-image: url("../images/exhibitions/Cutting-Egde Printmaking2.jpg");
+}
+
 // PARALLAX OBJECTS
 
 .shape-container {
@@ -1469,6 +1674,12 @@ body {
 @keyframes changewidth {
   0% {  transform: rotate(90deg) scale(1,2) translate(10px,0); }
   100% {  transform: rotate(90deg) scale(1,2) translate(0,0); }
+}
+
+@keyframes singlePulse {
+  0% {transform: scale(1.0)}
+  100% {transform: scale(3.5)}
+  /*100% {transform: scale(1.0)}*/
 }
 
 // MODIFIERS
