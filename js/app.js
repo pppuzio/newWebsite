@@ -13,12 +13,12 @@ import Parallax from 'parallax-js';
 
     //resizing to fullscreen
 
-    function fullscreenSize(){
+/*    function fullscreenSize(){
         $(window).resize(function(){
             $('.fullscreen-height').css('height',window.innerHeight+'px');
         })
     }
-    fullscreenSize();
+    fullscreenSize();*/
 
     //hamburger & main-menu
 
