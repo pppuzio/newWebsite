@@ -22,8 +22,8 @@ body {
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  -webkit-tap-highlight-color: transparent;
 }
 
 // Parallax
@@ -249,7 +249,11 @@ body {
     padding: 100px 0;
   }
   .section-inner {
-    padding: 0 100px;
+    padding: 0 80px;
+
+    @media (min-width: $rwd-500){
+      padding: 0 100px;
+    }
   }
 }
 
