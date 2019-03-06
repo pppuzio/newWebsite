@@ -343,6 +343,12 @@ import Parallax from 'parallax-js';
                 scrollTop: ($('.info-text').scrollTop()-scrollValue),
             },'fast');
 
+            $('.up').addClass('arrow__clicked');
+
+            setTimeout(function(){
+                $('.up').removeClass('arrow__clicked');
+            }, 500);
+
         });
 
         $(".down").click(function(){
@@ -352,6 +358,10 @@ import Parallax from 'parallax-js';
             },'fast');
 
             $('.down').addClass('arrow__clicked');
+
+            setTimeout(function(){
+                $('.down').removeClass('arrow__clicked');
+            }, 500);
 
         });
     }
