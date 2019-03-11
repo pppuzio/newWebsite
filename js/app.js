@@ -379,6 +379,27 @@ import Parallax from 'parallax-js';
         $(".middle-close-plane").css('height',pageContentHeight);
         $(".closest-plane").css('height',pageContentHeight);
 
+        $(window).on('resize', function(){
+            let pageContentHeight = $('.mid-plane').outerHeight();
+            
+            console.log('resize!');
+            $('.farest-plane').css('height',pageContentHeight);
+            $(".far-mid-plane").css('height',pageContentHeight);
+            $(".middle-close-plane").css('height',pageContentHeight);
+            $(".closest-plane").css('height',pageContentHeight);
+        });
+
+
+        $( window ).on( "orientationchange", function() {
+            let pageContentHeight = $('.mid-plane').outerHeight();
+
+            $('.farest-plane').css('height',pageContentHeight);
+            $(".far-mid-plane").css('height',pageContentHeight);
+            $(".middle-close-plane").css('height',pageContentHeight);
+            $(".closest-plane").css('height',pageContentHeight);
+
+        });
+
     }
 
     setParallaxLayersToContentHeight();
