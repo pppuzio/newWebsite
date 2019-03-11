@@ -586,6 +586,11 @@ body {
 .info-text-container{
   width: 100%;
 
+  @media (min-width: $rwd-900){
+    width: 40%;
+    padding: 0 50px;
+  }
+
   @media (min-width: $rwd-1100){
     width: 30%;
     padding: 0 50px;
@@ -632,7 +637,7 @@ body {
     }
 
     .arrow__clicked {
-      animation: singlePulse 0.5s ease-in-out;
+      animation: singlePulse 0.2s ease-in-out;
 
 
     }
@@ -642,6 +647,11 @@ body {
 
 .info-gallery--wrapper{
   width: 100%;
+
+  @media (min-width: $rwd-900){
+    width: 60%;
+    padding: 0 50px;
+  }
 
   @media (min-width: $rwd-1100){
     width: 70%;
@@ -708,6 +718,37 @@ body {
 
 .linkedin {
   background-image: url("../images/linkedin.png");
+}
+
+//FOOTER
+
+.footer-content {
+
+  margin-left: 0;
+
+  @media (min-width: $rwd-900) {
+    margin-left: 10%;
+  }
+
+  .flex__horizontal {
+    justify-content: center;
+
+    @media (min-width: $rwd-900) {
+      justify-content: flex-start;
+    }
+
+    .footer--icon {
+      background-image: url(../images/pp-logo-black.png);
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 10px;
+    }
+    .text {
+      font-size: $very-small-font-size;
+    }
+  }
 }
 // BUTTONS
 
@@ -1440,6 +1481,7 @@ body {
 .shape-container {
   width: 100%;
   position: relative;
+  height: 100%;
 }
 
 .farest-plane {
@@ -1461,6 +1503,26 @@ body {
       width: 35%;
       height: 38vh;
       left: 45%;
+    }
+  }
+
+  .small-shape-2 {
+    background-image: url("../images/shapeSmall2.png");
+    width: 14%;
+    height: 13vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -10vh;
+    left: 28%;
+    filter: blur(0px);
+    transform: rotate(80deg);
+
+    @media (min-width: $rwd-900) {
+      width: 14%;
+      height: 29vh;
+      left: 15%;
+      bottom: 53vh;
     }
   }
 }
@@ -1567,6 +1629,26 @@ body {
       top: 140vh;
       width: 44%;
       height: 38vh;
+    }
+  }
+
+  .big-shape-1b {
+    background-image: url("../images/shapeBig1.png");
+    width: 10%;
+    height: 10vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -12vh;
+    left: 28%;
+    filter: blur(1px);
+    transform: rotate(220deg);
+
+    @media (min-width: $rwd-900) {
+      width: 8%;
+      height: 22vh;
+      left: 21%;
+      bottom: 48vh;
     }
   }
 }

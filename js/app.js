@@ -361,13 +361,27 @@ import Parallax from 'parallax-js';
 
             setTimeout(function(){
                 $('.down').removeClass('arrow__clicked');
-            }, 500);
+            }, 200);
 
         });
     }
 
     scrollTextBox();
 
+//parallax layers height fix
+
+
+    function setParallaxLayersToContentHeight(){
+        let pageContentHeight = $('.mid-plane').outerHeight();
+
+        $('.farest-plane').css('height',pageContentHeight);
+        $(".far-mid-plane").css('height',pageContentHeight);
+        $(".middle-close-plane").css('height',pageContentHeight);
+        $(".closest-plane").css('height',pageContentHeight);
+
+    }
+
+    setParallaxLayersToContentHeight();
 
 // owl carousel
 
