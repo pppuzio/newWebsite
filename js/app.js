@@ -20,6 +20,9 @@ import Parallax from 'parallax-js';
     }
     fullscreenSize();*/
 
+
+    setParallaxLayersToContentHeight();
+
     //hamburger & main-menu
 
     function hamburgerToggler(){
@@ -32,6 +35,7 @@ import Parallax from 'parallax-js';
             menuItemsDelayedToggle();
             setDarkHamburgerOnLightBackground();
             changeSiteLogoValueOnMenuOpen();
+            onClickMenuItems();
         })
     }
     hamburgerToggler();
@@ -63,6 +67,41 @@ import Parallax from 'parallax-js';
 
             mainMenu.find('li').css('opacity', '0');
         }
+    }
+
+    function onClickMenuItems(){
+
+            $('.vertical-menu--item').on('click', function(){
+
+                $(".hamburger-toggler--wrapper").removeClass('open');
+
+                let item = $(this);
+                let itemTitle = item.children().text().toLowerCase();
+                let offsetCorrectionValue = 0;
+
+                if (itemTitle === "curriculum vitae"){
+                    itemTitle = "cv";
+                }
+                let selectedSection = $(`#${itemTitle}`);
+                console.log(itemTitle);
+
+                if ( itemTitle === "contact"){
+                    offsetCorrectionValue = -250;
+                } else {
+                    offsetCorrectionValue = 80;
+                }
+
+                $('html,body').animate({
+                        scrollTop: selectedSection.offset().top + offsetCorrectionValue},
+                    'slow');
+
+                let mainMenu = $('.main-menu');
+                mainMenu.addClass('main-menu__closed');
+                mainMenu.removeClass('main-menu__open');
+
+
+
+            })
     }
 
     function changeHamburgerTogglerValueOnScroll(){
@@ -146,7 +185,6 @@ import Parallax from 'parallax-js';
 
         element.hover(function(){
             $(this).find('div').toggleClass('medium-color-background');
-            console.log('jest');
         })
     }
     hoverChangeToMediumColor(hamburgerWrapper);
@@ -372,38 +410,97 @@ import Parallax from 'parallax-js';
 
 
     function setParallaxLayersToContentHeight(){
+
         let pageContentHeight = $('.mid-plane').outerHeight();
 
-        $('.farest-plane').css('height',pageContentHeight);
-        $(".far-mid-plane").css('height',pageContentHeight);
-        $(".middle-close-plane").css('height',pageContentHeight);
-        $(".closest-plane").css('height',pageContentHeight);
+        $('.farest-plane').height(pageContentHeight);
+        $(".far-mid-plane").height(pageContentHeight);
+        $(".middle-close-plane").height(pageContentHeight);
+        $(".closest-plane").height(pageContentHeight);
+
+
 
         $(window).on('resize', function(){
             let pageContentHeight = $('.mid-plane').outerHeight();
-            
-            console.log('resize!');
-            $('.farest-plane').css('height',pageContentHeight);
-            $(".far-mid-plane").css('height',pageContentHeight);
-            $(".middle-close-plane").css('height',pageContentHeight);
-            $(".closest-plane").css('height',pageContentHeight);
+
+            $('.farest-plane').height(pageContentHeight);
+            $(".far-mid-plane").height(pageContentHeight);
+            $(".middle-close-plane").height(pageContentHeight);
+            $(".closest-plane").height(pageContentHeight);
         });
 
 
         $( window ).on( "orientationchange", function() {
             let pageContentHeight = $('.mid-plane').outerHeight();
 
-            $('.farest-plane').css('height',pageContentHeight);
-            $(".far-mid-plane").css('height',pageContentHeight);
-            $(".middle-close-plane").css('height',pageContentHeight);
-            $(".closest-plane").css('height',pageContentHeight);
+            $('.farest-plane').height(pageContentHeight);
+            $(".far-mid-plane").height(pageContentHeight);
+            $(".middle-close-plane").height(pageContentHeight);
+            $(".closest-plane").height(pageContentHeight);
 
         });
 
     }
 
-    setParallaxLayersToContentHeight();
+// navbar
 
+    function onPressNavbarItem(){
+
+        let navbarMenuItems = $('.horizontal-menu--item');
+
+        let offsetCorrectionValue = 0;
+
+        navbarMenuItems.on('click', function(){
+            let item = $(this);
+            let itemTitle = item.children().children().text();
+            let selectedSection = $(`#${itemTitle}`);
+
+            if ( itemTitle === "contact"){
+                offsetCorrectionValue = -250;
+            } else {
+                offsetCorrectionValue = 80;
+            }
+
+            $('html,body').animate({
+                    scrollTop: selectedSection.offset().top + offsetCorrectionValue},
+                'slow');
+        })
+    }
+
+    onPressNavbarItem();
+
+    function onPressLogo(){
+
+        $('.site-logo').on("click", function(){
+            $('html,body').delay(50).animate({
+                    scrollTop:  $('html,body').offset().top},
+                'slow');
+        })
+    }
+
+    onPressLogo();
+
+    function onPressScrollArrow(){
+        $('.scroll-arrow').on("click", function(){
+            $('html,body').delay(50).animate({
+                    scrollTop:  $('#about').offset().top+80},
+                'slow');
+        })
+    }
+
+    onPressScrollArrow();
+
+// secure e-mail address
+
+    function changeFalseEmailToCorrect(){
+
+        $('a.mail').on('click', function(){
+            let href = $(this).attr('href');
+            $(this).attr('href', href.replace('falsemail.', ''));
+        });
+    }
+
+    changeFalseEmailToCorrect();
 // owl carousel
 
 
