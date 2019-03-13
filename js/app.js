@@ -21,8 +21,6 @@ import Parallax from 'parallax-js';
     fullscreenSize();*/
 
 
-    setParallaxLayersToContentHeight();
-
     //hamburger & main-menu
 
     function hamburgerToggler(){
@@ -86,12 +84,12 @@ import Parallax from 'parallax-js';
                 console.log(itemTitle);
 
                 if ( itemTitle === "contact"){
-                    offsetCorrectionValue = -250;
+                    offsetCorrectionValue = -190;
                 } else {
                     offsetCorrectionValue = 80;
                 }
 
-                $('html,body').animate({
+                $('html,body').stop(true, false).animate({
                         scrollTop: selectedSection.offset().top + offsetCorrectionValue},
                     'slow');
 
@@ -220,6 +218,11 @@ import Parallax from 'parallax-js';
                 showGalleryItemDescription($(this),700);
                 closeGalleryItem();
                 galleryDescriptionCloseButton($(this));
+
+                setTimeout( function(){
+                    checkAndSetParallaxLayersHeight();
+                },1000);
+
             }
 
         });
@@ -255,6 +258,10 @@ import Parallax from 'parallax-js';
                 /*gallery.slideUp();*/
                 menuItemTitle.removeClass('gallery-menu--item-title__active');
             }, 300);
+
+            setTimeout( function(){
+                checkAndSetParallaxLayersHeight();
+            },1000);
 
         })
     }
@@ -411,35 +418,30 @@ import Parallax from 'parallax-js';
 
     function setParallaxLayersToContentHeight(){
 
+        checkAndSetParallaxLayersHeight();
+
+        $(window).on('resize', function(){
+
+            checkAndSetParallaxLayersHeight();
+        });
+
+
+        $( window ).on( "orientationchange", function() {
+
+            checkAndSetParallaxLayersHeight();
+        });
+    }
+
+    setParallaxLayersToContentHeight();
+
+    function checkAndSetParallaxLayersHeight(){
+
         let pageContentHeight = $('.mid-plane').outerHeight();
 
         $('.farest-plane').height(pageContentHeight);
         $(".far-mid-plane").height(pageContentHeight);
         $(".middle-close-plane").height(pageContentHeight);
         $(".closest-plane").height(pageContentHeight);
-
-
-
-        $(window).on('resize', function(){
-            let pageContentHeight = $('.mid-plane').outerHeight();
-
-            $('.farest-plane').height(pageContentHeight);
-            $(".far-mid-plane").height(pageContentHeight);
-            $(".middle-close-plane").height(pageContentHeight);
-            $(".closest-plane").height(pageContentHeight);
-        });
-
-
-        $( window ).on( "orientationchange", function() {
-            let pageContentHeight = $('.mid-plane').outerHeight();
-
-            $('.farest-plane').height(pageContentHeight);
-            $(".far-mid-plane").height(pageContentHeight);
-            $(".middle-close-plane").height(pageContentHeight);
-            $(".closest-plane").height(pageContentHeight);
-
-        });
-
     }
 
 // navbar
@@ -456,7 +458,7 @@ import Parallax from 'parallax-js';
             let selectedSection = $(`#${itemTitle}`);
 
             if ( itemTitle === "contact"){
-                offsetCorrectionValue = -250;
+                offsetCorrectionValue = -190;
             } else {
                 offsetCorrectionValue = 80;
             }
@@ -475,7 +477,15 @@ import Parallax from 'parallax-js';
             $('html,body').delay(50).animate({
                     scrollTop:  $('html,body').offset().top},
                 'slow');
+
+            let mainMenu = $('.main-menu');
+            mainMenu.addClass('main-menu__closed');
+            mainMenu.removeClass('main-menu__open');
+
+            $(".hamburger-toggler--wrapper").removeClass('open');
         })
+
+
     }
 
     onPressLogo();
