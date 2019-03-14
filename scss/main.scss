@@ -680,8 +680,16 @@ body {
   }
 }
 
+.gallery--image--container {
 
-// CONTACT SECTION
+  .text__description{
+    font-style: normal;
+  }
+}
+
+
+
+  // CONTACT SECTION
 
 .contact-info--wrapper {
   padding: 150px 0;
@@ -854,6 +862,7 @@ body {
 /*  opacity: 0;*/
   display: none;
   width: 100%;
+  /*position:relative;*/
 /*  filter: blur(3px)*/ /*brightness(10%)*/;
 
 
@@ -1067,6 +1076,7 @@ body {
   background-image: url("../images/pollution1Detail.jpg");
   background-size: cover !important;
   background-position: left !important;
+
 }
 
 .inBloom1 {
@@ -1984,20 +1994,43 @@ body {
   background: $medium-color;
 }
 
+// preloader
 
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  /*background: #333 url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;*/
+  background-color: $dark-color;
+}
 
 
 
 // owl carousel modifications
 
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-  background: $medium-color;
+.owl-theme .owl-dots .owl-dot.active span {
+  background: $dark-color;
   outline: none;
-
 }
 
 .owl-theme .owl-dots .owl-dot span {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
+  background-color: $light-color;
+  border: 1px solid $dark-color;
 }
 
+
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: $medium-color;
+  border: 1px solid $medium-color;
+  outline: none;
+}
+
+.owl-theme .owl-dots, .owl-theme .owl-dots .owl-dot.active, .owl-theme .owl-dots .owl-dot:hover {
+  outline: none;
+}

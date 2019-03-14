@@ -21,6 +21,25 @@ import Parallax from 'parallax-js';
     fullscreenSize();*/
 
 
+    //initial
+
+    function preloader(){
+        $( window ).on( "load", function(){
+            $('.preloader').fadeOut();
+        });
+    }
+
+    preloader();
+
+    function scrollToTopOnReload(){
+
+        $( "html, body" ).animate({
+            scrollTop: $(document)
+        },800);
+    }
+
+    scrollToTopOnReload();
+
     //hamburger & main-menu
 
     function hamburgerToggler(){
@@ -209,7 +228,7 @@ import Parallax from 'parallax-js';
                 $('html,body').delay(50).animate({
                         scrollTop: $(this).offset().top},
                     'slow');
-                selectedGallery.delay(300).slideDown('slow');
+                selectedGallery.delay(500).slideDown(500);
                 $(this).parent().parent().addClass('gallery-menu--item-title__active');
 
                 console.log($(this));
@@ -224,7 +243,7 @@ import Parallax from 'parallax-js';
                 },1000);
 
             }
-
+                //TODO: add fix for IE!!!
         });
     }
 
