@@ -862,6 +862,8 @@ body {
 /*  opacity: 0;*/
   display: none;
   width: 100%;
+  overflow: hidden;
+  box-sizing: content-box;
   /*position:relative;*/
 /*  filter: blur(3px)*/ /*brightness(10%)*/;
 
@@ -1073,10 +1075,10 @@ body {
 }
 
 .pollution1Detail {
-  background-image: url("../images/pollution1Detail.jpg");
+  /*background-image: url("../images/pollution1Detail.jpg");*/
   background-size: cover !important;
   background-position: left !important;
-
+  background-color: red !important;
 }
 
 .inBloom1 {

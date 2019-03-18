@@ -228,7 +228,7 @@ import Parallax from 'parallax-js';
                 $('html,body').delay(50).animate({
                         scrollTop: $(this).offset().top},
                     'slow');
-                selectedGallery.delay(500).slideDown(500);
+                selectedGallery.slideDown(1000);
                 $(this).parent().parent().addClass('gallery-menu--item-title__active');
 
                 console.log($(this));
@@ -536,6 +536,7 @@ import Parallax from 'parallax-js';
 $(document).ready(function(){
     $(".owl-carousel").owlCarousel({
         loop:true,
+        lazyLoad: true,
         margin:10,
         responsive:{
             0:{items:1},
