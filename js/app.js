@@ -283,7 +283,7 @@ import Parallax from 'parallax-js';
                 /*$('html,body').delay(2500).animate({
                         scrollTop: $(this).offset().top},
                     'slow');*/
-            selectedGallery.delay(500).slideDown(500, function(){
+            selectedGallery.delay(300).slideDown(500, function(){
                 $('html,body').animate({
                         scrollTop: $(this).offset().top-30},
                     'slow');
