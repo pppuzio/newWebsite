@@ -208,6 +208,22 @@ import Parallax from 'parallax-js';
 
     //galllery
 
+    function detectIE(){
+
+        let ua = window.navigator.userAgent;
+        let is_ie = /MSIE|Trident/.test(ua);
+
+        if ( is_ie ) {
+            console.log("IE!");
+            galleryToggleForIE()
+        } else {
+            console.log("non IE browser detected");
+            galleryToggle();
+        }
+    }
+
+    detectIE();
+
     function galleryToggle(){
 
         $('.gallery-menu--item-title').on('click', function(event){
@@ -219,35 +235,78 @@ import Parallax from 'parallax-js';
                 hideGalleryItemDescription();
                 hideWorkInfoButton();
 
-                $('.gallery').slideUp();
+                $('.gallery').delay(300).slideUp(500);
                 let menuItemId= $(this).parent().parent().attr('id');
-
                 let selectedGallery = $(`#gallery-${menuItemId}`);
 
-
-                $('html,body').delay(50).animate({
+                /*$('html,body').delay(2500).animate({
                         scrollTop: $(this).offset().top},
-                    'slow');
-                selectedGallery.slideDown(1000);
+                    'slow');*/
+                selectedGallery.delay(500).slideDown(500, function(){
+                    $('html,body').animate({
+                            scrollTop: $(this).offset().top-30},
+                        'slow');
+                });
                 $(this).parent().parent().addClass('gallery-menu--item-title__active');
 
                 console.log($(this));
 
                 showCloseGalleryButton($(this));
-                showGalleryItemDescription($(this),700);
+                showGalleryItemDescription($(this),1200);
                 closeGalleryItem();
                 galleryDescriptionCloseButton($(this));
 
                 setTimeout( function(){
                     checkAndSetParallaxLayersHeight();
-                },1000);
+                },1500);
 
             }
-                //TODO: add fix for IE!!!
+
         });
     }
 
-    galleryToggle();
+    function galleryToggleForIE(){
+
+        $('.gallery-menu--item-title').on('click', function(){
+
+
+            $('.gallery-menu--item').removeClass('gallery-menu--item-title__active');
+            $('.gallery-menu--item-close-button').removeClass('gallery-menu--item-close-button__visible');
+            $('.gallery-menu--item-close-button').addClass('gallery-menu--item-close-button__hidden');
+            hideGalleryItemDescription();
+            hideWorkInfoButton();
+
+            $('.gallery').delay(300).slideUp(500);
+            let menuItemId= $(this).parent().parent().attr('id');
+            let selectedGallery = $(`#gallery-${menuItemId}`);
+
+                /*$('html,body').delay(2500).animate({
+                        scrollTop: $(this).offset().top},
+                    'slow');*/
+            selectedGallery.delay(500).slideDown(500, function(){
+                $('html,body').animate({
+                        scrollTop: $(this).offset().top-30},
+                    'slow');
+            });
+            $(this).parent().parent().addClass('gallery-menu--item-title__active');
+
+            console.log($(this));
+
+            showCloseGalleryButton($(this));
+            showGalleryItemDescription($(this),1200);
+            closeGalleryItem();
+            galleryDescriptionCloseButton($(this));
+
+            setTimeout( function(){
+                checkAndSetParallaxLayersHeight();
+            },1500);
+
+
+
+        });
+    }
+
+
 
     function closeGalleryItem(){
 
@@ -318,17 +377,12 @@ import Parallax from 'parallax-js';
 
         let galleryItemDescription = $(".work-info");
 
-        setTimeout(function(){
-
-        },500);
-
         galleryItemDescription.addClass("work-info__hidden");
         galleryItemDescription.removeClass("work-info__visible");
 
         setTimeout(function(){
             galleryItemDescription.hide();
-        }, 700);
-
+        }, 300);
     }
 
     function defaultHideWorkInfo(){

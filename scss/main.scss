@@ -9,7 +9,7 @@
 
 a {
   text-decoration: none;
-  color: #fdcf00;
+  color: $link-color;
 }
 
 body {
@@ -234,7 +234,7 @@ body {
 .flex__rwd {
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   @media (min-width: $rwd-900){
     flex-direction: row;
@@ -1075,10 +1075,9 @@ body {
 }
 
 .pollution1Detail {
-  /*background-image: url("../images/pollution1Detail.jpg");*/
+  background-image: url("../images/pollution1Detail.jpg");
   background-size: cover !important;
   background-position: left !important;
-  background-color: red !important;
 }
 
 .inBloom1 {
@@ -1858,49 +1857,55 @@ body {
 .mid-plane {
   width: 100%;
 
-  .small-shape-2 {
-    background-image: url(../images/shapeSmall2.png);
-    width: 30%;
-    height: 21vh;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: -11vh;
-    left: 2%;
-    transform: rotate(180deg);
+  .shape-container {
+    pointer-events: none;
 
-    @media (min-width: $rwd-900) {
-      width: 22%;
+    .small-shape-2 {
+      background-image: url(../images/shapeSmall2.png);
+      width: 30%;
+      height: 21vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -11vh;
+      left: 2%;
+      transform: rotate(180deg);
+
+      @media (min-width: $rwd-900) {
+        width: 22%;
+      }
+    }
+    .small-shape-4 {
+      background-image: url(../images/shapeSmall4.png);
+      width: 30%;
+      height: 22vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 124vh;
+      left: 49%;
+      transform: rotate(-20deg);
+      display: none;
+
+      @media (min-width: $rwd-900) {
+        display: block;
+      }
+      @media (min-width: $rwd-1100) {
+        left: 65%;
+      }
+      @media (min-width: $rwd-1300) {
+        top: 100vh;
+      }
+      @media (min-width: $rwd-1500) {
+        top: 85vh;
+      }
+      @media (min-width: $rwd-1700) {
+        top: 75vh;
+      }
     }
   }
-  .small-shape-4 {
-    background-image: url(../images/shapeSmall4.png);
-    width: 30%;
-    height: 22vh;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 124vh;
-    left: 49%;
-    transform: rotate(-20deg);
-    display: none;
 
-    @media (min-width: $rwd-900) {
-      display: block;
-    }
-    @media (min-width: $rwd-1100) {
-      left: 65%;
-    }
-    @media (min-width: $rwd-1300) {
-      top: 100vh;
-    }
-    @media (min-width: $rwd-1500) {
-      top: 85vh;
-    }
-    @media (min-width: $rwd-1700) {
-      top: 75vh;
-    }
-  }
+
 }
 
 // ANIMATIONS
