@@ -45,8 +45,6 @@ import Parallax from 'parallax-js';
     function hamburgerToggler(){
         $(".hamburger-toggler").on('click', function(){
 
-            console.log('klikam');
-            console.log($(this).find(".hamburger-toggler--wrapper"));
             $(this).find(".hamburger-toggler--wrapper").toggleClass('open');
             menuSlideToggle();
             menuItemsDelayedToggle();
@@ -153,9 +151,13 @@ import Parallax from 'parallax-js';
 
         $(document).on('scroll', function(){
             if($(document).scrollTop() >= $('#about').offset().top && !$('.main-menu').hasClass('main-menu__open')){
-                $('.site-logo').css('background-image','url("images/pp-logo-black.png');
+                /*$('.site-logo').css('background-image','url("images/pp-logo-black.png');*/
+                $('.site-logo').addClass('site-logo__black');
+                $('.site-logo').removeClass('site-logo__white');
             }else {
-                $('.site-logo').css('background-image','url("images/pp-logo-white.png")');
+               /* $('.site-logo').css('background-image','url("images/pp-logo-white.png")');*/
+                $('.site-logo').addClass('site-logo__white');
+                $('.site-logo').removeClass('site-logo__black');
             }
         })
     }
@@ -163,9 +165,11 @@ import Parallax from 'parallax-js';
 
     function changeSiteLogoValueOnMenuOpen(){
         if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__open')){
-            $('.site-logo').css('background-image','url("images/pp-logo-white.png');
+            $('.site-logo').addClass('site-logo__white');
+            $('.site-logo').removeClass('site-logo__black');
         } else if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__closed')){
-            $('.site-logo').css('background-image','url("images/pp-logo-black.png');
+            $('.site-logo').addClass('site-logo__black');
+            $('.site-logo').removeClass('site-logo__white');
         }
     }
 

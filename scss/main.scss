@@ -227,9 +227,13 @@ body {
 
 .flex__horizontal {
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
+
+  .flex__flex-end{
+    justify-content: flex-end;
+  }
 
 .flex__rwd {
   flex-direction: column;
@@ -327,7 +331,7 @@ body {
   background-position: center;
   background-size: contain;
   transition: .5s ease-in-out;
-  transition-delay: 0.1s;
+  /*transition-delay: 0.1s;*/
 }
 
 .sticky-icon {
@@ -601,7 +605,9 @@ body {
     font-size: $very-small-font-size-00;
     letter-spacing: 0.1em;
     height: 75vh;
-    overflow: auto;
+    width: 100%;
+    overflow: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 
     span{
         text-decoration: underline;
@@ -614,7 +620,7 @@ body {
 
   .scroll-arrows-container {
 
-    transform: rotate(90deg);
+    /*transform: rotate(90deg);*/
     margin-right: 9px;
     margin-top: 25px;
 
@@ -629,18 +635,36 @@ body {
       margin: 10px;
       cursor: pointer;
       transition: .3s ease-in-out;
+      position: relative;
+
+      div {
+        /*content: ">";*/
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        /*transform-origin: top left;*/
+
+      }
+
+      div:first-child {
+        transform: translate(-50%,-50%) rotate(90deg);
+      }
+
+      div:last-child {
+        transform: translate(-50%,-50%) rotate(-90deg);
+      }
 
       &:hover{
         transform: scale(1.1);
       }
-
-
     }
+
+
 
     .arrow__clicked {
       animation: singlePulse 0.2s ease-in-out;
-
-
     }
   }
 }
@@ -684,6 +708,7 @@ body {
 
   .text__description{
     font-style: normal;
+    text-align: center;
   }
 }
 
@@ -1964,6 +1989,14 @@ body {
   }
 }
 
+.site-logo__white {
+  background-image: url(../images/pp-logo-white.png);
+}
+
+.site-logo__black {
+  background-image: url(../images/pp-logo-black.png);
+}
+
 .scroll-arrow {
   cursor: pointer;
 
@@ -2019,9 +2052,14 @@ body {
 
 // owl carousel modifications
 
+.owl-theme .owl-dots .owl-dot {
+  display: inline-flex;
+}
+
 .owl-theme .owl-dots .owl-dot.active span {
   background: $dark-color;
   outline: none;
+  height: 10px;
 }
 
 .owl-theme .owl-dots .owl-dot span {
@@ -2029,6 +2067,7 @@ body {
   height: 4px;
   background-color: $light-color;
   border: 1px solid $dark-color;
+  transition: .3s ease-in-out;
 }
 
 
