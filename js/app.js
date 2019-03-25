@@ -236,7 +236,7 @@ import Parallax from 'parallax-js';
                 $('.gallery-menu--item').removeClass('gallery-menu--item-title__active');
                 $('.gallery-menu--item-close-button').removeClass('gallery-menu--item-close-button__visible');
                 $('.gallery-menu--item-close-button').addClass('gallery-menu--item-close-button__hidden');
-                hideGalleryItemDescription();
+                hideGalleryItemDescription(300);
                 hideWorkInfoButton();
 
                 $('.gallery').delay(300).slideUp(500);
@@ -277,7 +277,7 @@ import Parallax from 'parallax-js';
             $('.gallery-menu--item').removeClass('gallery-menu--item-title__active');
             $('.gallery-menu--item-close-button').removeClass('gallery-menu--item-close-button__visible');
             $('.gallery-menu--item-close-button').addClass('gallery-menu--item-close-button__hidden');
-            hideGalleryItemDescription();
+            hideGalleryItemDescription(300);
             hideWorkInfoButton();
 
             $('.gallery').delay(300).slideUp(500);
@@ -323,7 +323,7 @@ import Parallax from 'parallax-js';
 
             /*let gallery =  $(this).parent().siblings('.gallery');*/
 
-            hideGalleryItemDescription();
+            hideGalleryItemDescription(300);
             hideWorkInfoButton();
 
             $(this).parent().siblings('.gallery').delay(400).slideUp('slow');
@@ -344,6 +344,8 @@ import Parallax from 'parallax-js';
             setTimeout( function(){
                 checkAndSetParallaxLayersHeight();
             },1000);
+
+            /*$('work-info--show-button').hide();*/
 
         })
     }
@@ -377,7 +379,7 @@ import Parallax from 'parallax-js';
 
     }
 
-    function hideGalleryItemDescription(){
+    function hideGalleryItemDescription(delay){
 
         let galleryItemDescription = $(".work-info");
 
@@ -386,7 +388,7 @@ import Parallax from 'parallax-js';
 
         setTimeout(function(){
             galleryItemDescription.hide();
-        }, 300);
+        }, delay);
     }
 
     function defaultHideWorkInfo(){
@@ -404,11 +406,13 @@ import Parallax from 'parallax-js';
     function galleryDescriptionCloseButton(galleryItem){
         let closeButton = galleryItem.parent().parent().find('.work-info--close-button');
 
-        console.log(closeButton);
         closeButton.on('click', function(){
-            console.log("gallery desrpt close");
-            hideGalleryItemDescription();
-            showWorkInfoButton(galleryItem);
+            hideGalleryItemDescription(500);
+
+            setTimeout(function(){
+                showWorkInfoButton(galleryItem);
+            },500);
+
         })
     }
 
@@ -425,8 +429,6 @@ import Parallax from 'parallax-js';
         workInfoButton.show('500', function(){
             workInfoButton.removeClass("work-info--show-button__hidden");
             workInfoButton.addClass("work-info--show-button__visible");
-            console.log("pokaż!");
-            console.log(workInfoButton);
         });
 
         onPressWorkInfoButton(workInfoButton);
@@ -442,7 +444,7 @@ import Parallax from 'parallax-js';
 
             },100);*/
             let button = $(this);
-            button.hide(500);
+            button.hide(300);
             button.removeClass("work-info--show-button__visible");
             button.addClass("work-info--show-button__hidden");
 
@@ -456,7 +458,7 @@ import Parallax from 'parallax-js';
         setTimeout(function(){
             $(".work-info--show-button").removeClass("work-info--show-button__visible");
             $(".work-info--show-button").addClass("work-info--show-button__hidden");
-
+            $(".work-info--show-button").hide(300);
         },100);
     }
 
