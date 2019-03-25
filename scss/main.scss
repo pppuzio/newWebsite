@@ -979,7 +979,7 @@ body {
     color: $light-color;
     padding: 40px 20px;
     box-shadow: 0 10px 18px rgba($dark-color, 0.5);
-    height: 40vh;
+    height: 80vh;
     overflow: auto;
     width: 100%;
 
@@ -991,6 +991,9 @@ body {
       height: 100%;
     }
 
+    .text {
+      width: 90%;
+    }
 
     .work-info--close-button {
       position: absolute;
