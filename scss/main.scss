@@ -979,10 +979,18 @@ body {
     color: $light-color;
     padding: 40px 20px;
     box-shadow: 0 10px 18px rgba($dark-color, 0.5);
+    height: 40vh;
+    overflow: auto;
+    width: 100%;
 
     @media (min-width: $rwd-650){
       padding: 40px 50px;
     }
+
+    @media (min-width: $rwd-1100){
+      height: 100%;
+    }
+
 
     .work-info--close-button {
       position: absolute;
@@ -1021,6 +1029,8 @@ body {
 
   }
 }
+
+.work-info--description::-webkit-scrollbar { width: 0 !important }
 
 .work-info__hidden {
   left: -100%;
