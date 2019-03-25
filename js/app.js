@@ -40,6 +40,8 @@ import Parallax from 'parallax-js';
 
     scrollToTopOnReload();
 
+
+
     //hamburger & main-menu
 
     function hamburgerToggler(){
@@ -218,10 +220,8 @@ import Parallax from 'parallax-js';
         let is_ie = /MSIE|Trident/.test(ua);
 
         if ( is_ie ) {
-            console.log("IE!");
             galleryToggleForIE()
         } else {
-            console.log("non IE browser detected");
             galleryToggle();
         }
     }
@@ -416,11 +416,18 @@ import Parallax from 'parallax-js';
 
         let workInfoButton = galleryItemDescription.parent().parent().find('.work-info--show-button');
 
-        setTimeout(function(){
+        /*setTimeout(function(){
 
             workInfoButton.removeClass("work-info--show-button__hidden");
             workInfoButton.addClass("work-info--show-button__visible");
-        }, 300);
+        }, 300);*/
+
+        workInfoButton.show('500', function(){
+            workInfoButton.removeClass("work-info--show-button__hidden");
+            workInfoButton.addClass("work-info--show-button__visible");
+            console.log("pokaż!");
+            console.log(workInfoButton);
+        });
 
         onPressWorkInfoButton(workInfoButton);
     }
@@ -429,15 +436,15 @@ import Parallax from 'parallax-js';
 
         workInfoButton.on("click", function(){
 
-            setTimeout(function(){
+/*            setTimeout(function(){
                 workInfoButton.removeClass("work-info--show-button__visible");
                 workInfoButton.addClass("work-info--show-button__hidden");
 
-            },100);
-
-
-
-
+            },100);*/
+            let button = $(this);
+            button.hide(500);
+            button.removeClass("work-info--show-button__visible");
+            button.addClass("work-info--show-button__hidden");
 
             let galleryItem = workInfoButton.siblings().find(".gallery-menu--item-title");
             showGalleryItemDescription(galleryItem, 100);

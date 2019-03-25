@@ -325,20 +325,30 @@ body {
 
 .site-logo {
   background-image: url("../images/pp-logo-white.png");
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   transition: .5s ease-in-out;
   /*transition-delay: 0.1s;*/
+
+  @media (min-width: $rwd-550){
+    height: 50px;
+    width: 50px;
+  }
 }
 
 .sticky-icon {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 28px;
+  left: 10px;
   z-index: 1;
+
+  @media (min-width: $rwd-550){
+    top: 20px;
+    left: 20px;
+  }
 }
 
 // MENUS
@@ -606,8 +616,8 @@ body {
     letter-spacing: 0.1em;
     height: 75vh;
     width: 100%;
-    overflow: hidden;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow: auto;
+    -ms-overflow-style: none;
 
     span{
         text-decoration: underline;
@@ -798,19 +808,16 @@ body {
   }
 
   .hamburger-toggler--wrapper{
-    width: 35px;
-    height: 40px;
+    width: 20px;
+    height: 15px;
     position: relative;
     margin: 0 auto;
-    /*-webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;*/
     cursor: pointer;
+
+    @media (min-width: $rwd-550) {
+      width: 35px;
+      height: 40px;
+    }
 
     div{
       display: block;
@@ -841,11 +848,19 @@ body {
 
       }
       &:nth-child(3), &:nth-child(4){
-        top: 8px;
+        top: 5px;
+
+        @media (min-width: $rwd-550) {
+          top: 8px;
+        }
 
       }
       &:nth-child(5), &:nth-child(6){
-        top: 16px;
+        top: 10px;
+
+        @media (min-width: $rwd-550) {
+          top: 16px;
+        }
       }
     }
   }
@@ -903,7 +918,7 @@ body {
     background-position: center;
 
     @media (min-width: $rwd-1100){
-      height: 90vh;
+      height: 88vh;
     }
   }
 }
@@ -1025,20 +1040,21 @@ body {
 
 
 .work-info--show-button {
-  position: absolute;
+  position: relative;
+  display: none;
   background: $medium-color;
   color: $light-color;
   padding: 0 8px;
-  box-shadow: 0 10px 18px rgba($dark-color, 0.5);
+  /*box-shadow: 0 10px 18px rgba($dark-color, 0.5);*/
   transition: .3s ease-in-out;
   z-index: 2;
   margin-top: 10px;
   transform: translate(-50%,0);
-  width: 30%;
+  width: 40%;
 /*  border-radius: 10px;*/
 
   &:hover {
-    width: 35%;
+    width: 45%;
 
     @media (min-width: $rwd-1100) {
       width: 23%;
@@ -1059,6 +1075,7 @@ body {
     padding: 10px 10px;
     margin-top: 0;
     border-radius: 0;
+    box-shadow: 0 10px 18px rgba($dark-color, 0.5);
   }
   @media (min-width: $rwd-1300){
     width: 15%;
