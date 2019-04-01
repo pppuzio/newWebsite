@@ -238,6 +238,7 @@ import Parallax from 'parallax-js';
                 $('.gallery-menu--item-close-button').addClass('gallery-menu--item-close-button__hidden');
                 hideGalleryItemDescription(300);
                 hideWorkInfoButton();
+                setVideo();
 
                 $('.gallery').delay(300).slideUp(500);
                 let menuItemId= $(this).parent().parent().attr('id');
@@ -279,6 +280,7 @@ import Parallax from 'parallax-js';
             $('.gallery-menu--item-close-button').addClass('gallery-menu--item-close-button__hidden');
             hideGalleryItemDescription(300);
             hideWorkInfoButton();
+            setVideo();
 
             $('.gallery').delay(300).slideUp(500);
             let menuItemId= $(this).parent().parent().attr('id');
@@ -318,11 +320,9 @@ import Parallax from 'parallax-js';
 
         closeButton.on('click',function(){
 
-            console.log('click na X!');
-            console.log($(this).parent().siblings());
-
-            /*let gallery =  $(this).parent().siblings('.gallery');*/
-
+            /*$('.video').parent().parent().parent().removeClass("active");
+            $('.video').parent().parent().parent().removeClass("owl-video-playing");*/
+            stopVideo(1000);
             hideGalleryItemDescription(300);
             hideWorkInfoButton();
 
@@ -333,7 +333,6 @@ import Parallax from 'parallax-js';
 
 
 
-            /*$(this).parent().parent().removeClass('gallery-menu--item-title__active');*/
             let menuItemTitle = $(this).parent().parent();
 
             setTimeout(function() {
@@ -345,12 +344,20 @@ import Parallax from 'parallax-js';
                 checkAndSetParallaxLayersHeight();
             },1000);
 
-            /*$('work-info--show-button').hide();*/
+            $('work-info--show-button').hide();
 
         })
     }
 
+    function stopVideo(delay){
+        setTimeout(function(){
+            $('.youtube-player').attr('src','');
+        },delay);
+    }
 
+    function setVideo(){
+        $('.youtube-player').attr('src','https://www.youtube.com/embed/4uC3pYJJF0w');
+    }
 
     function showCloseGalleryButton(closeButtonParent) {
 
@@ -605,11 +612,36 @@ $(document).ready(function(){
         loop:true,
         lazyLoad: true,
         margin:10,
+        video: true,
         responsive:{
             0:{items:1},
         }
     });
 });
 
+function owlChangeVideoToggle(){
+
+    $(".owl-carousel").on('translate.owl.carousel', function() {
+
+        if ($('.youtube-player').parent().parent().hasClass("active")){
+            console.log("owl carousel video triggered!");
+            stopVideo();
+        } else {
+            setVideo();
+        }
+    });
+
+/*    $(".owl-carousel").on('prev.owl.carousel', function() {
+
+        if ($('.youtube-player').parent().parent().hasClass("active")){
+            console.log("owl carousel video triggered!");
+            setVideo();
+        } else {
+            stopVideo();
+        }
+    });*/
+}
+
+owlChangeVideoToggle();
 
 
