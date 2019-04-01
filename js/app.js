@@ -26,6 +26,8 @@ import Parallax from 'parallax-js';
     function preloader(){
         $( window ).on( "load", function(){
             $('.preloader').fadeOut();
+            scrollToTopOnReload();
+            checkAndSetParallaxLayersHeight();
         });
     }
 
@@ -37,9 +39,6 @@ import Parallax from 'parallax-js';
             scrollTop: $(document)
         },800);
     }
-
-    scrollToTopOnReload();
-
 
 
     //hamburger & main-menu
