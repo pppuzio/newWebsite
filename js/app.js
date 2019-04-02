@@ -25,7 +25,7 @@ import Parallax from 'parallax-js';
 
     function preloader(){
         $( window ).on( "load", function(){
-            $('.preloader').fadeOut();
+            $('.preloader').delay(1200).fadeOut();
             scrollToTopOnReload();
             checkAndSetParallaxLayersHeight();
         });
