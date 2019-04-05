@@ -360,7 +360,7 @@ textarea { white-space: pre-wrap; }
 .sticky-icon {
   position: fixed;
   top: 28px;
-  left: 10px;
+  left: 22px;
   z-index: 1;
 
   @media (min-width: $rwd-550){
@@ -636,6 +636,7 @@ textarea { white-space: pre-wrap; }
     width: 100%;
     overflow: auto;
     -ms-overflow-style: none;
+    scrollbar-width: none; //TODO: dodaj to do opisow w gallery w ver.mobile
 
     span{
         text-decoration: underline;
