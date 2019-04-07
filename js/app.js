@@ -2,30 +2,19 @@ import '../scss/main.scss'
 import Parallax from 'parallax-js';
 
 
+//paralax setup
 
-
-
-
-    //paralax setup TODO: opakuj w document ready
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
 
 
-    //resizing to fullscreen
-
-/*    function fullscreenSize(){
-        $(window).resize(function(){
-            $('.fullscreen-height').css('height',window.innerHeight+'px');
-        })
-    }
-    fullscreenSize();*/
-
-
-    //initial
+//initial
 
     function preloader(){
+
         $( window ).on( "load", function(){
             $('.preloader').delay(1200).fadeOut();
+            $('.loader').delay(800).fadeOut();
             scrollToTopOnReload();
             checkAndSetParallaxLayersHeight();
         });
@@ -40,10 +29,16 @@ import Parallax from 'parallax-js';
         },800);
     }
 
+    function disableLoadersInIE(){
 
-    //hamburger & main-menu
+        $('.loader').hide();
+        $('.video-preloader').remove();
+    }
+
+//hamburger & main-menu
 
     function hamburgerToggler(){
+
         $(".hamburger-toggler").on('click', function(){
 
             $(this).find(".hamburger-toggler--wrapper").toggleClass('open');
@@ -56,7 +51,7 @@ import Parallax from 'parallax-js';
     }
     hamburgerToggler();
 
-    function menuSlideToggle(){
+    function menuSlideToggle() {
 
         let mainMenu = $('.main-menu');
         let hamburgerToggler = $('.hamburger-toggler--wrapper');
@@ -64,7 +59,7 @@ import Parallax from 'parallax-js';
         if (hamburgerToggler.hasClass("open")){
             mainMenu.addClass('main-menu__open');
             mainMenu.removeClass('main-menu__closed');
-        }else {
+        } else {
             mainMenu.addClass('main-menu__closed');
             mainMenu.removeClass('main-menu__open');
         }
@@ -76,11 +71,8 @@ import Parallax from 'parallax-js';
         let hamburgerToggler = $('.hamburger-toggler--wrapper');
 
         if (hamburgerToggler.hasClass("open")) {
-
             mainMenu.find('li').css('opacity', '1');
-
         } else {
-
             mainMenu.find('li').css('opacity', '0');
         }
     }
@@ -99,7 +91,6 @@ import Parallax from 'parallax-js';
                     itemTitle = "cv";
                 }
                 let selectedSection = $(`#${itemTitle}`);
-                console.log(itemTitle);
 
                 if ( itemTitle === "contact"){
                     offsetCorrectionValue = -190;
@@ -114,88 +105,95 @@ import Parallax from 'parallax-js';
                 let mainMenu = $('.main-menu');
                 mainMenu.addClass('main-menu__closed');
                 mainMenu.removeClass('main-menu__open');
-
-
-
             })
     }
 
     function changeHamburgerTogglerValueOnScroll(){
 
-        $('.hamburger-toggler--wrapper').find('div').addClass('light-color-background');
-        // $('.main-menu').hasClass('.main-menu__opened')
+        let hamburger = $('.hamburger-toggler--wrapper').find('div');
+        hamburger.addClass('light-color-background');
+
         $(document).on('scroll', function(){
               if ($(document).scrollTop() >= $('#about').offset().top && !$('.main-menu').hasClass('main-menu__open')){
-                $('.hamburger-toggler--wrapper').find('div').addClass('dark-color-background');
-                $('.hamburger-toggler--wrapper').find('div').removeClass('light-color-background');
+                  hamburger.addClass('dark-color-background');
+                  hamburger.removeClass('light-color-background');
             } else if ($(document).scrollTop() < $('#about').offset().top){
-                $('.hamburger-toggler--wrapper').find('div').addClass('light-color-background');
-                $('.hamburger-toggler--wrapper').find('div').removeClass('dark-color-background');
+                  hamburger.addClass('light-color-background');
+                  hamburger.removeClass('dark-color-background');
             }
         })
     }
     changeHamburgerTogglerValueOnScroll();
 
-
     function setDarkHamburgerOnLightBackground(){
-        if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__open')){
-            $('.hamburger-toggler--wrapper').find('div').addClass('light-color-background');
-            $('.hamburger-toggler--wrapper').find('div').removeClass('dark-color-background');
-        } else if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__closed')){
-            $('.hamburger-toggler--wrapper').find('div').addClass('dark-color-background');
-            $('.hamburger-toggler--wrapper').find('div').removeClass('light-color-background');
-        }
 
+        let hamburger = $('.hamburger-toggler--wrapper').find('div');
+
+        if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__open')){
+            hamburger.addClass('light-color-background');
+            hamburger.removeClass('dark-color-background');
+        } else if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__closed')){
+            hamburger.addClass('dark-color-background');
+            hamburger.removeClass('light-color-background');
+        }
     }
 
     function changeSiteLogoValueOnScroll(){
 
+        let siteLogo = $('.site-logo');
+
         $(document).on('scroll', function(){
             if($(document).scrollTop() >= $('#about').offset().top && !$('.main-menu').hasClass('main-menu__open')){
-                /*$('.site-logo').css('background-image','url("images/pp-logo-black.png');*/
-                $('.site-logo').addClass('site-logo__black');
-                $('.site-logo').removeClass('site-logo__white');
+                siteLogo.addClass('site-logo__black');
+                siteLogo.removeClass('site-logo__white');
             }else {
-               /* $('.site-logo').css('background-image','url("images/pp-logo-white.png")');*/
-                $('.site-logo').addClass('site-logo__white');
-                $('.site-logo').removeClass('site-logo__black');
+                siteLogo.addClass('site-logo__white');
+                siteLogo.removeClass('site-logo__black');
             }
         })
     }
     changeSiteLogoValueOnScroll();
 
     function changeSiteLogoValueOnMenuOpen(){
+
+        let siteLogo = $('.site-logo');
+
         if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__open')){
-            $('.site-logo').addClass('site-logo__white');
-            $('.site-logo').removeClass('site-logo__black');
+            siteLogo.addClass('site-logo__white');
+            siteLogo.removeClass('site-logo__black');
         } else if ($(document).scrollTop() >= $('#about').offset().top && $('.main-menu').hasClass('main-menu__closed')){
-            $('.site-logo').addClass('site-logo__black');
-            $('.site-logo').removeClass('site-logo__white');
+            siteLogo.addClass('site-logo__black');
+            siteLogo.removeClass('site-logo__white');
         }
     }
 
     function showHamburgerTogglerOnScroll(){
+
+        let hamburger =  $('.hamburger-toggler');
+
         $(document).on('scroll', function(){
             if($(window).width() >= 900){
                 if ($(document).scrollTop() >= $('#about').offset().top){
-                    console.log('show');
-                    $('.hamburger-toggler').css('display','block');
+                    hamburger.css('display','block');
                 }else {
-                    $('.hamburger-toggler').css('display','none');
+                    hamburger.css('display','none');
                 }
             }else {
-                $('.hamburger-toggler').css('display','block');
+                hamburger.css('display','block');
             }
         });
     }
     showHamburgerTogglerOnScroll();
 
     function showHamburgerTogglerOnResize(){
+
+        let hamburger =  $('.hamburger-toggler');
+
         $(window).resize(function(){
             if ($(window).width() >= 900 && $(document).scrollTop() < $('#about').offset().top){
-                $('.hamburger-toggler').css('display','none');
+                hamburger.css('display','none');
             }else {
-                $('.hamburger-toggler').css('display','block');
+                hamburger.css('display','block');
             }
         });
     }
@@ -219,7 +217,8 @@ import Parallax from 'parallax-js';
         let is_ie = /MSIE|Trident/.test(ua);
 
         if ( is_ie ) {
-            galleryToggleForIE()
+            galleryToggleForIE();
+            disableLoadersInIE();
         } else {
             galleryToggle();
         }
@@ -243,17 +242,12 @@ import Parallax from 'parallax-js';
                 let menuItemId= $(this).parent().parent().attr('id');
                 let selectedGallery = $(`#gallery-${menuItemId}`);
 
-                /*$('html,body').delay(2500).animate({
-                        scrollTop: $(this).offset().top},
-                    'slow');*/
                 selectedGallery.delay(500).slideDown(500, function(){
                     $('html,body').animate({
                             scrollTop: $(this).offset().top-30},
                         'slow');
                 });
                 $(this).parent().parent().addClass('gallery-menu--item-title__active');
-
-                console.log($(this));
 
                 showCloseGalleryButton($(this));
                 showGalleryItemDescription($(this),1200);
@@ -263,16 +257,13 @@ import Parallax from 'parallax-js';
                 setTimeout( function(){
                     checkAndSetParallaxLayersHeight();
                 },1500);
-
             }
-
         });
     }
 
     function galleryToggleForIE(){
 
         $('.gallery-menu--item-title').on('click', function(){
-
 
             $('.gallery-menu--item').removeClass('gallery-menu--item-title__active');
             $('.gallery-menu--item-close-button').removeClass('gallery-menu--item-close-button__visible');
@@ -285,17 +276,13 @@ import Parallax from 'parallax-js';
             let menuItemId= $(this).parent().parent().attr('id');
             let selectedGallery = $(`#gallery-${menuItemId}`);
 
-                /*$('html,body').delay(2500).animate({
-                        scrollTop: $(this).offset().top},
-                    'slow');*/
             selectedGallery.delay(300).slideDown(500, function(){
                 $('html,body').animate({
                         scrollTop: $(this).offset().top-30},
                     'slow');
             });
-            $(this).parent().parent().addClass('gallery-menu--item-title__active');
 
-            console.log($(this));
+            $(this).parent().parent().addClass('gallery-menu--item-title__active');
 
             showCloseGalleryButton($(this));
             showGalleryItemDescription($(this),1200);
@@ -305,9 +292,6 @@ import Parallax from 'parallax-js';
             setTimeout( function(){
                 checkAndSetParallaxLayersHeight();
             },1500);
-
-
-
         });
     }
 
@@ -319,8 +303,6 @@ import Parallax from 'parallax-js';
 
         closeButton.on('click',function(){
 
-            /*$('.video').parent().parent().parent().removeClass("active");
-            $('.video').parent().parent().parent().removeClass("owl-video-playing");*/
             stopVideo(1000);
             hideGalleryItemDescription(300);
             hideWorkInfoButton();
@@ -330,12 +312,9 @@ import Parallax from 'parallax-js';
             $(this).addClass('gallery-menu--item-close-button__hidden');
             $(this).removeClass('gallery-menu--item-close-button__visible');
 
-
-
             let menuItemTitle = $(this).parent().parent();
 
             setTimeout(function() {
-                /*gallery.slideUp();*/
                 menuItemTitle.removeClass('gallery-menu--item-title__active');
             }, 300);
 
@@ -349,22 +328,20 @@ import Parallax from 'parallax-js';
     }
 
     function stopVideo(delay){
+
         setTimeout(function(){
             $('.youtube-player').attr('src','');
         },delay);
     }
 
     function setVideo(){
+
         $('.youtube-player').attr('src','https://www.youtube.com/embed/4uC3pYJJF0w');
     }
 
     function showCloseGalleryButton(closeButtonParent) {
 
-
-        /*let closeButton = $('.gallery-menu--item-close-button');*/
         let closeButton = closeButtonParent.next();
-
-
         closeButton.addClass('gallery-menu--item-close-button__visible');
         closeButton.removeClass('gallery-menu--item-close-button__hidden');
 
@@ -375,12 +352,9 @@ import Parallax from 'parallax-js';
         let galleryItemDescription = galleryItem.parent().siblings('.work-info--wrapper').find(".work-info");
 
         setTimeout(function(){
-            console.log("infoworkDescription");
             galleryItemDescription.show();
             galleryItemDescription.removeClass("work-info__hidden");
             galleryItemDescription.addClass("work-info__visible");
-            /*galleryItemDescription.fadeIn('slow');*/
-
         }, delay);
 
     }
@@ -398,16 +372,10 @@ import Parallax from 'parallax-js';
     }
 
     function defaultHideWorkInfo(){
-        let galleryItemDescription = $(".work-info");
-        galleryItemDescription.hide();
+
+        $(".work-info").hide();
     }
     defaultHideWorkInfo();
-
-/*    function defaultHideWorkInfoButton(){
-        let workInfoButton = $('.work-info--show-button');
-        workInfoButton.hide();
-    }
-    defaultHideWorkInfoButton();*/
 
     function galleryDescriptionCloseButton(galleryItem){
         let closeButton = galleryItem.parent().parent().find('.work-info--close-button');
@@ -426,12 +394,6 @@ import Parallax from 'parallax-js';
 
         let workInfoButton = galleryItemDescription.parent().parent().find('.work-info--show-button');
 
-        /*setTimeout(function(){
-
-            workInfoButton.removeClass("work-info--show-button__hidden");
-            workInfoButton.addClass("work-info--show-button__visible");
-        }, 300);*/
-
         workInfoButton.show('500', function(){
             workInfoButton.removeClass("work-info--show-button__hidden");
             workInfoButton.addClass("work-info--show-button__visible");
@@ -444,11 +406,6 @@ import Parallax from 'parallax-js';
 
         workInfoButton.on("click", function(){
 
-/*            setTimeout(function(){
-                workInfoButton.removeClass("work-info--show-button__visible");
-                workInfoButton.addClass("work-info--show-button__hidden");
-
-            },100);*/
             let button = $(this);
             button.hide(300);
             button.removeClass("work-info--show-button__visible");
@@ -461,10 +418,13 @@ import Parallax from 'parallax-js';
     }
 
     function hideWorkInfoButton(){
+
+        let showInfoButton = $(".work-info--show-button");
+
         setTimeout(function(){
-            $(".work-info--show-button").removeClass("work-info--show-button__visible");
-            $(".work-info--show-button").addClass("work-info--show-button__hidden");
-            $(".work-info--show-button").hide(300);
+            showInfoButton.removeClass("work-info--show-button__visible");
+            showInfoButton.addClass("work-info--show-button__hidden");
+            showInfoButton.hide(300);
         },100);
     }
 
@@ -502,7 +462,6 @@ import Parallax from 'parallax-js';
 
         });
     }
-
     scrollTextBox();
 
 //parallax layers height fix
@@ -603,8 +562,8 @@ import Parallax from 'parallax-js';
     }
 
     changeFalseEmailToCorrect();
-// owl carousel
 
+// owl carousel
 
 $(document).ready(function(){
     $(".owl-carousel").owlCarousel({
@@ -622,23 +581,21 @@ function owlChangeVideoToggle(){
 
     $(".owl-carousel").on('translate.owl.carousel', function() {
 
-        if ($('.youtube-player').parent().parent().hasClass("active")){
-            console.log("owl carousel video triggered!");
-            stopVideo();
-        } else {
-            setVideo();
-        }
+        let videoPreloader =  $('.video-preloader');
+        let videoLoader = $('.video-loader');
+
+        setTimeout(function(){
+            if ($('.youtube-player').parent().parent().hasClass("active")){
+                setVideo();
+                videoPreloader.delay(1200).fadeOut();
+                videoLoader.delay(800).fadeOut();
+            } else {
+                stopVideo();
+                videoPreloader.fadeIn();
+                videoLoader.fadeIn();
+            }
+        },500);
     });
-
-/*    $(".owl-carousel").on('prev.owl.carousel', function() {
-
-        if ($('.youtube-player').parent().parent().hasClass("active")){
-            console.log("owl carousel video triggered!");
-            setVideo();
-        } else {
-            stopVideo();
-        }
-    });*/
 }
 
 owlChangeVideoToggle();
