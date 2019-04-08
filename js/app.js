@@ -95,7 +95,7 @@ import Parallax from 'parallax-js';
                 if ( itemTitle === "contact"){
                     offsetCorrectionValue = -190;
                 } else {
-                    offsetCorrectionValue = 80;
+                    offsetCorrectionValue = 120;
                 }
 
                 $('html,body').stop(true, false).animate({
@@ -511,7 +511,7 @@ import Parallax from 'parallax-js';
             if ( itemTitle === "contact"){
                 offsetCorrectionValue = -190;
             } else {
-                offsetCorrectionValue = 80;
+                offsetCorrectionValue = 120;
             }
 
             $('html,body').animate({
