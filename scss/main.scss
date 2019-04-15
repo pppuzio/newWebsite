@@ -625,7 +625,7 @@ textarea { white-space: pre-wrap; }
     padding: 0 50px;
   }
 
-  .info-text{
+  .info-text {
     font-size: $very-small-font-size-00;
     letter-spacing: 0.1em;
     height: 75vh;
@@ -634,10 +634,15 @@ textarea { white-space: pre-wrap; }
     -ms-overflow-style: none;
     scrollbar-width: none;
 
-    span{
+    span {
         text-decoration: underline;
         display: block;
         margin: 20px 0;
+    }
+    div {
+      display: inline;
+      color: $light-color;
+      background-color: $dark-color;
     }
   }
 
@@ -724,6 +729,7 @@ textarea { white-space: pre-wrap; }
   .text__description {
     font-style: normal;
     text-align: center;
+    padding-top: 10px;
   }
 }
 
@@ -1155,6 +1161,32 @@ textarea { white-space: pre-wrap; }
 
 .pillar1Detail {
   background-image: url("../images/Pillar1Detail.jpg");
+  background-size: cover !important;
+}
+
+.datascape1and3 {
+  background-image: url("../images/datascape01and03.jpg");
+}
+
+.datascape2 {
+  background-image: url("../images/datascape02.jpg");
+}
+
+.datascape2detail {
+  background-image: url("../images/datascape02detail.jpg");
+  background-size: cover !important;
+}
+
+.datascape4and5and6 {
+  background-image: url("../images/datascape04and05and06.jpg");
+}
+
+.datascape7and8 {
+  background-image: url("../images/datascape07and08.jpg");
+}
+
+.datascape8detail {
+  background-image: url("../images/datascape08detail.jpg");
   background-size: cover !important;
 }
 
